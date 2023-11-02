@@ -1,0 +1,132 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "Prendre Rendez-vous - Cabinet de kinésithérapie & physiothérapie"%}</title>
+    {% load static %}
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img class="logo" src="{% static 'images/logo.png' %}" alt="Logo de la clinique">
+            <h1 >{% trans "Cabinet de kinésithérapie & physiothérapie"%}</h1>
+            <nav>
+                <ul>
+                  <li><a href="{% url 'index' %}" >{% trans 'Accueil' %}</a></li>
+                  <li><a href="{% url 'services' %}" >{% trans 'Services' %}</a></li>
+                  <li><a href="{% url 'contact' %}">{% trans 'Contact' %}</a></li>
+                  <li><a href="{% url 'rendezvous' %}" >{% trans 'Rendez-vous' %}</a></li>
+                </ul>
+              
+                <div class="centered-container">
+                    <form action="{% url 'set_language' %}" method="post" class="language-selector-container">
+                      {% csrf_token %}
+                      <input name="next" type="hidden" value="{{ redirect_to }}">
+                      <select name="language" class="custom-select" onchange="this.form.submit()">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}
+                        {% get_language_info_list for LANGUAGES as languages %}
+                        {% for language in languages %}
+                        <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected {% endif %}>
+                          <img src="{% static 'images/' %}{{ language.code }}.png" alt="{{ language.name_local }}" width="16" height="16">
+                          {{ language.name_local }} ({{ language.code }})
+                      </option>
+                        {% endfor %}
+                      </select>
+                    </form>
+                  </div>
+              </nav> 
+        </div>
+    </header>
+ <!-- your_template_name.html -->
+ {% block content %}
+<main>
+    <section>
+        <h2 >{% trans "Prise de Rendez-vous"%}</h2>
+       
+        <form id="appointment-form" method="post" action="{% url 'prendre_rendezvous' %}">
+            {% csrf_token %}
+            {% if messages %}
+            <ul class="messages" >
+                {% for message in messages %}
+                <p class="success-message"><li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li></p>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <label for="name">{% trans "Nom :"%}</label>
+            <input type="text" id="name" name="nom" required>
+
+            <label for="name">{% trans "Prenom :"%}</label>
+            <input type="text" id="name" name="prenom" required>
+
+            <label for="name">{% trans "Téléphone:"%}</label>
+            <input type="text" id="name" name="telephone" required>
+            
+            <label for="email">{% trans "Email :"%}</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="date">{% trans "Date :"%}</label>
+            <input type="date" id="date" name="date" required>
+            
+            <label for="time" >{% trans "Heure de début :"%}</label>
+             <select id="time" name="time" required>
+             <option value="09:00">09:00</option>
+             <option value="10:00">10:00</option>
+             <option value="11:00">11:00</option>
+              <option value="13:00">13:00</option>
+              <option value="14:00">14:00</option>
+             <option value="15:00">15:00</option>
+             <option value="16:00">16:00</option>
+             <option value="17:00">17:00</option>
+             </select>
+            
+            <input type="submit" value="Réserver">
+        </form>
+     
+    </section>
+    <section class="appointment-section">
+        <h2>{% trans "Liste des Rendez-vous" %}</h2>
+        {% if liste_rendezvous %}
+        <table class="appointment-table">
+            <thead>
+                <tr>
+                    <th>{% trans "Nom" %}</th>
+                    <th>{% trans "Prenom" %}</th>
+                    <th>{% trans "Date" %}</th>
+                    <th>{% trans "Heure" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rendezvous in liste_rendezvous %}
+                <tr class="appointment-row">
+                    <td>{{ rendezvous.nom }}</td>
+                    <td>{{ rendezvous.prenom }}</td>
+                    <td>{{ rendezvous.date }}</td>
+                    <td>{{ rendezvous.time }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>{% trans "Il n'y a pas de rendez-vous pour le moment." %}</p>
+        {% endif %}
+    </section>
+    
+    <img src="{% static 'images/rendezvous1.png' %}" alt="Prendre Rendez-vous">
+</main>
+{% endblock %}
+
+    
+    
+    <footer>
+        <div class="container">
+            <p>&copy;{% trans "2023 Cabinet de kinésithérapie & physiothérapie." %}</p>
+        </div>
+    </footer>
+</body>
+</html>
