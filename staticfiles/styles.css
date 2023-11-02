@@ -502,46 +502,44 @@ form select[name="time"] option {
     color: #333;
 }
 
-/* Styles for the language selector */
-.language-selector {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-    background-color: #fff;
-    color: #333;
-    margin-right: 10px;
+/* Style du conteneur */
+.centered-container {
+    text-align: center;
+    margin: 20px;
 }
 
-/* Styles for flag icons */
+/* Style du sélecteur de langue */
+.language-selector-container {
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 5px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+/* Style des options du sélecteur de langue */
+.custom-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+}
+
+/* Style des icônes de drapeau */
 .flag-icon {
     width: 24px;
     height: 16px;
     margin-right: 5px;
 }
-.centered-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%; 
-    text-align: center; 
-  }
-  /* Style du conteneur li */
-  .language-selector-container {
-    margin: 10px;
-    padding: 10px;
-    background-color: #f5f5f5;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
 
-  /* Style du select */
-  .custom-select {
-    width: 150px;
-    height: 30px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
+/* Style pour la sélection active */
+.custom-select option[selected] {
+    background-color: #007bff; /* Couleur de fond de l'option sélectionnée */
+    color: #fff; /* Couleur du texte de l'option sélectionnée */
+}
 
  
 
