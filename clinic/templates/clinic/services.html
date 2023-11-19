@@ -53,7 +53,12 @@
                 <h1>{{ service.name }}</h1>
                 <img class="thumbnail" src="{{service.imageURL}}">
                 {% endfor %}
-            </ul>            
+            </ul>    
+            <ul>
+                {% for servicenoimage in services %}
+                <h1>{{ servicenoimage.name }}</h1>
+                {% endfor %}
+            </ul>        
         </section>
     </main>
     <footer>

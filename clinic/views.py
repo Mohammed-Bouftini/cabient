@@ -1,12 +1,18 @@
 from django.shortcuts import render
 from .models import Service
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from .forms import RendezVousForm
+from .models import RendezVous ,ServiceNoImage
+from datetime import datetime
 
 def index(request):
     return render(request, 'clinic/index.html')
 
 def services(request):
     services = Service.objects.all()
-    return render(request, 'clinic/services.html', {'services': services})
+    servicesnoimage = ServiceNoImage.objects.all()
+    return render(request, 'clinic/services.html', {'services': services, 'servicesnoimage': servicesnoimage})
 
 def rendezvous(request):
     # Récupérez tous les rendez-vous depuis la base de données et triez par date
@@ -27,11 +33,7 @@ def adminlogin(request):
     return render(request, 'clinic/adminlogin.html')
 
 # views.py
-from django.shortcuts import render, redirect
-from django.contrib import messages
-from .forms import RendezVousForm
-from .models import RendezVous
-from datetime import datetime
+
 
 def prendre_rendezvous(request):
     if request.method == 'POST':
@@ -55,14 +57,12 @@ def prendre_rendezvous(request):
     else:
         form = RendezVousForm()
     
-    # Récupérez la liste des rendez-vous depuis la base de données et triez par date
     liste_rendezvous = RendezVous.objects.all().order_by('date')
 
-    # Supprimez les rendez-vous expirés de la liste
+
     current_date = datetime.today().date()
     liste_rendezvous = [rdv for rdv in liste_rendezvous if rdv.date >= current_date]
 
-    # Passez la liste des rendez-vous au modèle
     context = {'form': form, 'liste_rendezvous': liste_rendezvous}
     return render(request, 'clinic/rendezvous.html', context)
 
@@ -72,6 +72,5 @@ def prendre_rendezvous(request):
 from django.shortcuts import redirect
 
 def change_language(request, language_code):
-    # Update the language session and redirect to the current page
     request.session['django_language'] = language_code
     return redirect(request.META.get('HTTP_REFERER'))

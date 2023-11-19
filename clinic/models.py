@@ -18,13 +18,12 @@ class Service(models.Model):
            return self.name
     @property
     def imageURL(self):
-        try:
-            url = self.image.url
-        except:
-            url = ''
-        return url
+         return self.image.url if self.image else ''
 
-		
+
+class ServiceNoImage(models.Model):
+    name = models.CharField(max_length=100)
+
 
 
 

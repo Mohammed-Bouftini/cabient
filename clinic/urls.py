@@ -10,5 +10,4 @@ urlpatterns = [
     path('prendre-rendezvous/', views.prendre_rendezvous, name='prendre_rendezvous'),
     path('change-language/<str:language_code>/', views.change_language, name='change_language'),
 
-    # Autres URL pour vos vues
 ]
