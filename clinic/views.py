@@ -11,8 +11,12 @@ def index(request):
 
 def services(request):
     services = Service.objects.all()
-    servicesnoimage = ServiceNoImage.objects.all()
-    return render(request, 'clinic/services.html', {'services': services, 'servicesnoimage': servicesnoimage})
+    servicesnoimages = ServiceNoImage.objects.all()
+    return render(request, 'clinic/services.html', {'services': services , 'servicesnoimages':servicesnoimages})
+
+#def servicesnoimages(request):
+   # servicesnoimages = ServiceNoImage.objects.all()
+    #return render(request, 'clinic/services.html', {'servicesnoimages': servicesnoimages})
 
 def rendezvous(request):
     # Récupérez tous les rendez-vous depuis la base de données et triez par date
@@ -42,18 +46,16 @@ def prendre_rendezvous(request):
             date = form.cleaned_data['date']
             time = form.cleaned_data['time']
             
-            # Vérifier si l'heure est déjà réservée pour cette date
             if RendezVous.objects.filter(date=date, time=time).exists():
                 messages.error(request, 'L\'heure est déjà réservée pour cette date.')
             else:
-                # Vérifier si la date est une nouvelle date (après aujourd'hui)
                 if date >= datetime.today().date():
                     form.save()
                     messages.success(request, 'Rendez-vous enregistré avec succès!')
                 else:
                     messages.error(request, 'La date doit être une nouvelle date.')
             
-            return redirect('prendre_rendezvous')  # Redirect to the same page
+            return redirect('prendre_rendezvous') 
     else:
         form = RendezVousForm()
     

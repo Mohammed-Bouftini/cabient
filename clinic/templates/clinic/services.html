@@ -50,15 +50,20 @@
             <img src="{% static 'images/services.png' %}" alt="Nos Services">
             <ul>
                 {% for service in services %}
-                <h1>{{ service.name }}</h1>
-                <img class="thumbnail" src="{{service.imageURL}}">
+                    <li>
+                        <h1>{{ service.name }}</h1>
+                        <img class="thumbnail" src="{{ service.imageURL }}">
+                    </li>
                 {% endfor %}
-            </ul>    
+            </ul>
+            
             <ul>
-                {% for servicenoimage in services %}
-                <h1>{{ servicenoimage.name }}</h1>
+                {% for servicenoimage in servicesnoimages %}
+                    <li>
+                        <h1>{{ servicenoimage.name }}</h1>
+                    </li>
                 {% endfor %}
-            </ul>        
+            </ul>       
         </section>
     </main>
     <footer>
