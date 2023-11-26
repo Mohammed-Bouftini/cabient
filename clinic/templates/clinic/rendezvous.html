@@ -59,32 +59,32 @@
                 {% endfor %}
             </ul>
             {% endif %}
-            <label for="name">{% trans "Nom :"%}</label>
+            <label for="name"><i class="fas fa-user"></i> {% trans "Nom :" %}</label>
             <input type="text" id="name" name="nom" required>
-
-            <label for="name">{% trans "Prenom :"%}</label>
+        
+            <label for="name"><i class="fas fa-user"></i> {% trans "Prenom :" %}</label>
             <input type="text" id="name" name="prenom" required>
-
-            <label for="name">{% trans "Téléphone:"%}</label>
+        
+            <label for="name"><i class="fas fa-phone"></i> {% trans "Téléphone:" %}</label>
             <input type="text" id="name" name="telephone" required>
-            
-            <label for="email">{% trans "Email :"%}</label>
+        
+            <label for="email"><i class="fas fa-envelope"></i> {% trans "Email :" %}</label>
             <input type="email" id="email" name="email" required>
-            
-            <label for="date">{% trans "Date :"%}</label>
+        
+            <label for="date"><i class="far fa-calendar-alt"></i> {% trans "Date :" %}</label>
             <input type="date" id="date" name="date" required>
-            
-            <label for="time" >{% trans "Heure de début :"%}</label>
-             <select id="time" name="time" required>
-             <option value="09:00">09:00</option>
-             <option value="10:00">10:00</option>
-             <option value="11:00">11:00</option>
-              <option value="13:00">13:00</option>
-              <option value="14:00">14:00</option>
-             <option value="15:00">15:00</option>
-             <option value="16:00">16:00</option>
-             <option value="17:00">17:00</option>
-             </select>
+        
+            <label for="time"><i class="far fa-clock"></i> {% trans "Heure de début :" %}</label>
+            <select id="time" name="time" required>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="13:00">13:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+            </select>
             
             <input type="submit" value="Réserver">
         </form>
