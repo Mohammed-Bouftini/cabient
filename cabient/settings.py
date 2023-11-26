@@ -75,8 +75,8 @@ DATABASES = {
         'NAME': 'cabient',
         'USER': 'root',
         'PASSWORD': 'Mb20000227@',
-        'HOST': 'localhost',  # Change to your database server's address
-        'PORT': '3306',       # Change to your database server's port
+        'HOST': 'localhost',  
+        'PORT': '3306',      
     }
 }
 
@@ -97,9 +97,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/4.2/topics/i18n/
-
 LANGUAGE_CODE = 'fr-FR'
 TIME_ZONE = 'UTC'
 USE_I18N = True
@@ -119,7 +116,8 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 
 MEDIA_URL = '/images/'
 MEDIA_ROOT = BASE_DIR / 'static/images'
-
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 django_heroku.settings(locals())

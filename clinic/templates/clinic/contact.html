@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% trans "Contactez-nous - Ma Clinique de "%}"</title>
     {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-..."
+crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
@@ -49,8 +51,10 @@
             <h2 >{% trans "Contactez-nous"%}</h2>
             <p>{% trans "Pour prendre rendez-vous ou pour toute question, n'hésitez pas à nous contacter :"%}</p>
             <address>
-                {% trans "Email : "%}<a href="mailto:ouadie.affous.oa@gmail.com">ouadie.affous.oa@gmail.com</a><br>
-                {% trans "Téléphone :"%}<a> +212 6 33 57 19 60</a>
+                <i class="fas fa-envelope"></i> {% trans "Email :" %}
+                <a href="mailto:ouadie.affous.oa@gmail.com">ouadie.affous.oa@gmail.com</a><br>
+                <i class="fas fa-phone"></i> {% trans "Téléphone :" %}
+                 <a href="tel:+212633571960">+212 6 33 57 19 60</a>
             </address>
             <img src="{% static 'images/contact.png' %}" alt="Contactez-nous">
         </section>
