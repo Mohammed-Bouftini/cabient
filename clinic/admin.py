@@ -4,6 +4,11 @@ from .models import RendezVous, Service, ServiceNoImage
 from PIL import Image
 from django.urls import reverse
 from django.utils.html import format_html
+from reportlab.pdfgen import canvas
+from django.http import HttpResponse
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
+from reportlab.lib import colors
 
 
 @admin.register(RendezVous)
@@ -14,6 +19,7 @@ class RendezVousAdmin(admin.ModelAdmin):
     ordering = ('date', 'time')
 
     actions = ['supprimer_rendezvous_expires']
+    actions = ['supprimer_rendezvous_expires', 'telecharger_rendezvous_pdf']
 
     def supprimer_rendezvous_expires(self, request, queryset):
         current_date = timezone.now().date()
@@ -29,6 +35,39 @@ class RendezVousAdmin(admin.ModelAdmin):
         return format_html('<a href="{}">Modifier</a>', change_url)
 
     modify_button.short_description = 'Modifier'
+    
+    def telecharger_rendezvous_pdf(self, request, queryset):
+
+        response = HttpResponse(content_type='application/pdf')
+        response['Content-Disposition'] = 'attachment; filename="rendezvous.pdf"'
+
+    # Créer un document PDF
+        pdf = SimpleDocTemplate(response, pagesize=letter)
+        data = [['Nom', 'Prénom', 'Téléphone', 'Email', 'Date', 'Heure']]
+
+        for rendezvous in queryset:
+            data.append([rendezvous.nom, rendezvous.prenom, rendezvous.telephone, rendezvous.email,
+                     str(rendezvous.date), str(rendezvous.time)])
+
+    # Créer le tableau et ajouter le style
+        table = Table(data)
+        style = TableStyle([('BACKGROUND', (0, 0), (-1, 0), colors.grey),
+                        ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+                        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+                        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+                        ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+                        ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
+                        ('GRID', (0, 0), (-1, -1), 1, colors.black)])
+        table.setStyle(style)
+
+  
+        pdf.build([table])
+        return response
+    telecharger_rendezvous_pdf.short_description = "Télécharger les rendez-vous en PDF"
+
+   
+
+    
 
 
 @admin.register(Service)
