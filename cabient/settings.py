@@ -70,16 +70,32 @@ WSGI_APPLICATION = 'cabient.wsgi.application'
  #   }
 #}
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cabient',
-        'USER': 'root',
-        'PASSWORD': 'Mb20000227@',
-        'HOST': 'localhost',  
-        'PORT': '3306',      
+#DATABASES = {
+ #   'default': {
+  #      'ENGINE': 'django.db.backends.mysql',
+   #     'NAME': 'cabient',
+    #    'USER': 'root',
+     #   'PASSWORD': 'Mb20000227@',
+      #  'HOST': 'localhost',  
+       # 'PORT': '3306',      
+    #}
+#}
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
     }
-}
+else:
+    # Utilisez la base de données MySQL en local
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'cabient',
+            'USER': 'root',
+            'PASSWORD': 'Mb20000227@',
+            'HOST': 'localhost',
+            'PORT': '3306',
+        }
+    }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
