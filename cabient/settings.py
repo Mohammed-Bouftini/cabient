@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'your-secret-key')
 DEBUG = os.getenv('DEBUG', True)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['cabient-f82e9e37cfa5.herokuapp.com']
 
 
 # Application definition
@@ -79,9 +79,6 @@ DATABASES = {
         'HOST': 'localhost',  
         'PORT': '3306',      
     }
-}
-DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('CLEARDB_DATABASE_URL')),
 }
 
 AUTH_PASSWORD_VALIDATORS = [
