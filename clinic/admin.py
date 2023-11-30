@@ -13,13 +13,20 @@ from reportlab.lib import colors
 
 @admin.register(RendezVous)
 class RendezVousAdmin(admin.ModelAdmin):
-    list_display = ('nom', 'prenom', 'telephone', 'email', 'date', 'time', 'modify_button')
+    list_display = ('nom', 'prenom', 'telephone', 'email', 'date', 'time', 'presence', 'modify_button')
     list_filter = ('date', 'time')
     search_fields = ('nom', 'prenom', 'telephone', 'email')
     ordering = ('date', 'time')
+    
+    actions = ['supprimer_rendezvous_expires', 'telecharger_rendezvous_pdf','toggle_presence']
 
-    actions = ['supprimer_rendezvous_expires']
-    actions = ['supprimer_rendezvous_expires', 'telecharger_rendezvous_pdf']
+
+    def toggle_presence(self, request, queryset):
+        # Inverser la valeur de présence pour les rendez-vous sélectionnés
+        for rendezvous in queryset:
+            rendezvous.presence = not rendezvous.presence
+            rendezvous.save()
+    toggle_presence.short_description = "Toggle Presence"  # Libellé de l'action
 
     def supprimer_rendezvous_expires(self, request, queryset):
         current_date = timezone.now().date()
@@ -41,15 +48,15 @@ class RendezVousAdmin(admin.ModelAdmin):
         response = HttpResponse(content_type='application/pdf')
         response['Content-Disposition'] = 'attachment; filename="rendezvous.pdf"'
 
-    # Créer un document PDF
+   
         pdf = SimpleDocTemplate(response, pagesize=letter)
-        data = [['Nom', 'Prénom', 'Téléphone', 'Email', 'Date', 'Heure']]
+        data = [['Nom', 'Prénom', 'Téléphone', 'Email', 'Date', 'Heure','presence']]
 
         for rendezvous in queryset:
             data.append([rendezvous.nom, rendezvous.prenom, rendezvous.telephone, rendezvous.email,
-                     str(rendezvous.date), str(rendezvous.time)])
+                     str(rendezvous.date), str(rendezvous.time),str(rendezvous.presence)])
 
-    # Créer le tableau et ajouter le style
+    
         table = Table(data)
         style = TableStyle([('BACKGROUND', (0, 0), (-1, 0), colors.grey),
                         ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),

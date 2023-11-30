@@ -9,6 +9,7 @@ class RendezVous(models.Model):
     email = models.CharField(max_length=100)
     date = models.DateField()
     time = models.TimeField()
+    presence = models.BooleanField(default=False)
 
     def __str__(self):
         return f"Rendez-vous with {self.nom} {self.prenom} on {self.telephone} {self.email} on {self.date} at {self.time}"
