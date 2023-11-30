@@ -69,17 +69,26 @@ WSGI_APPLICATION = 'cabient.wsgi.application'
  #   }
 #}
 
+#DATABASES = {
+ #   'default': {
+  #      'ENGINE': 'django.db.backends.mysql',
+   #     'NAME': 'cabient',
+    #    'USER': 'root',
+     #   'PASSWORD': 'Mb20000227@',
+      #  'HOST': 'localhost',  
+       # 'PORT': '3306',      
+    #}
+#}
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cabient',
-        'USER': 'root',
-        'PASSWORD': 'Mb20000227@',
-        'HOST': 'localhost',  
-        'PORT': '3306',      
+        'HOST': os.environ.get('CLEARDB_DATABASE_URL', 'localhost'),
+        'NAME': os.environ.get('CLEARDB_DATABASE_NAME', 'cabient'),
+        'USER': os.environ.get('CLEARDB_DATABASE_USER', 'root'),
+        'PASSWORD': os.environ.get('CLEARDB_DATABASE_PASSWORD', 'Mb20000227@'),
+        'PORT': os.environ.get('CLEARDB_DATABASE_PORT', '3306'),
     }
 }
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
