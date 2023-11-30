@@ -24,19 +24,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'colorfield',
-    'admin_interface',
     'django_heroku',
     'clinic', 
 ]
-
-ADMIN_INTERFACE_SETTINGS = {
-    'theme': 'default',  # Vous pouvez utiliser 'bootstrap', 'bootstrap2', 'bootstrap3' ou 'default'
-    'title': 'Cabinet Ouadie',
-    'heading': 'Cabinet Ouadie',
-    'favicon': '/static/favicon.ico',
-    'logo': '/static/logo.png',
-}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
