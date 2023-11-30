@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 import django_heroku
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -69,25 +70,18 @@ WSGI_APPLICATION = 'cabient.wsgi.application'
  #   }
 #}
 
-#DATABASES = {
- #   'default': {
-  #      'ENGINE': 'django.db.backends.mysql',
-   #     'NAME': 'cabient',
-    #    'USER': 'root',
-     #   'PASSWORD': 'Mb20000227@',
-      #  'HOST': 'localhost',  
-       # 'PORT': '3306',      
-    #}
-#}
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': os.environ.get('CLEARDB_DATABASE_URL', 'localhost'),
-        'NAME': os.environ.get('CLEARDB_DATABASE_NAME', 'cabient'),
-        'USER': os.environ.get('CLEARDB_DATABASE_USER', 'root'),
-        'PASSWORD': os.environ.get('CLEARDB_DATABASE_PASSWORD', 'Mb20000227@'),
-        'PORT': os.environ.get('CLEARDB_DATABASE_PORT', '3306'),
+        'NAME': 'cabient',
+        'USER': 'root',
+        'PASSWORD': 'Mb20000227@',
+        'HOST': 'localhost',  
+        'PORT': '3306',      
     }
+}
+DATABASES = {
+    'default': dj_database_url.config(default=os.getenv('CLEARDB_DATABASE_URL')),
 }
 
 AUTH_PASSWORD_VALIDATORS = [
