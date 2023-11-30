@@ -32,8 +32,8 @@ INSTALLED_APPS = [
 
 ADMIN_INTERFACE_SETTINGS = {
     'theme': 'default',  # Vous pouvez utiliser 'bootstrap', 'bootstrap2', 'bootstrap3' ou 'default'
-    'title': 'Your Admin Title',
-    'heading': 'Your Admin Heading',
+    'title': 'Cabinet Ouadie',
+    'heading': 'Cabinet Ouadie',
     'favicon': '/static/favicon.ico',
     'logo': '/static/logo.png',
 }
