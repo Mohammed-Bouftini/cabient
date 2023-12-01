@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'your-secret-key')
 DEBUG = os.getenv('DEBUG', True)
 
-ALLOWED_HOSTS = ['cabient-f82e9e37cfa5.herokuapp.com']
+ALLOWED_HOSTS = ['cabinet-kine-physio-ouadie.com','www.cabinet-kine-physio-ouadie.com']
 
 
 # Application definition
