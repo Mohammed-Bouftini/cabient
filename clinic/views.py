@@ -76,3 +76,12 @@ from django.shortcuts import redirect
 def change_language(request, language_code):
     request.session['django_language'] = language_code
     return redirect(request.META.get('HTTP_REFERER'))
+
+
+from django.http import JsonResponse
+from .models import RendezVous
+from django.core.serializers import serialize
+
+def get_rendezvous_data(request):
+    rendezvous_data = serialize('json', RendezVous.objects.all())
+    return JsonResponse({'rendezvous_data': rendezvous_data})
