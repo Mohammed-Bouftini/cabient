@@ -1,5 +1,5 @@
-from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QVBoxLayout, QWidget, QTableWidget, QTableWidgetItem, QLabel
-from PySide6.QtCore import Qt  # Import the Qt module
+from PySide6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QTableWidget, QTableWidgetItem
+from PySide6.QtCore import Qt, QDateTime
 import requests
 import json
 
@@ -7,17 +7,10 @@ class DesktopApp(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.init_ui()
-
-    def init_ui(self):
         central_widget = QWidget(self)
         self.setCentralWidget(central_widget)
 
         layout = QVBoxLayout(central_widget)
-
-        self.get_data_button = QPushButton("Get All RendezVous Data from Django", self)
-        self.get_data_button.clicked.connect(self.get_all_rendezvous_data)
-        layout.addWidget(self.get_data_button)
 
         # Create a QTableWidget
         self.table_widget = QTableWidget(self)
@@ -27,6 +20,9 @@ class DesktopApp(QMainWindow):
         headers = ["Nom", "Prenom", "Telephone", "Email", "Date", "Time", "Presence"]
         self.table_widget.setColumnCount(len(headers))
         self.table_widget.setHorizontalHeaderLabels(headers)
+
+        # Load data automatically when the application starts
+        self.get_all_rendezvous_data()
 
     def get_all_rendezvous_data(self):
         url = "http://localhost:8000/get_rendezvous_data/"
@@ -48,9 +44,9 @@ class DesktopApp(QMainWindow):
                 self.set_table_item(row_position, 1, item['fields']['prenom'])
                 self.set_table_item(row_position, 2, item['fields']['telephone'])
                 self.set_table_item(row_position, 3, item['fields']['email'])
-                self.set_table_item(row_position, 4, str(item['fields']['date']))
-                self.set_table_item(row_position, 5, str(item['fields']['time']))
-                self.set_table_item(row_position, 6, str(item['fields']['presence']))
+                self.set_table_item(row_position, 4, item['fields']['date'])
+                self.set_table_item(row_position, 5, item['fields']['time'])
+                self.set_table_item(row_position, 6, item['fields']['presence'])
 
         else:
             self.table_widget.setRowCount(0)
@@ -59,6 +55,20 @@ class DesktopApp(QMainWindow):
     def set_table_item(self, row, col, value):
         item = QTableWidgetItem(str(value))
         item.setFlags(item.flags() ^ Qt.ItemIsEditable)  # Make cells non-editable
+
+        # Adjust the width of the Date and Time columns
+        if col in {4, 5}:
+            self.table_widget.setColumnWidth(col, 120)
+
+        # Format Date and Time columns using QDateTime
+        if col == 4:  # Date column
+            date_time = QDateTime.fromString(value, "yyyy-MM-dd").toString("dd.MM.yyyy")
+            item.setData(Qt.DisplayRole, date_time)
+
+        if col == 5:  # Time column
+            date_time = QDateTime.fromString(value, "HH:mm:ss").toString("hh:mm AP")
+            item.setData(Qt.DisplayRole, date_time)
+
         self.table_widget.setItem(row, col, item)
 
 if __name__ == "__main__":
