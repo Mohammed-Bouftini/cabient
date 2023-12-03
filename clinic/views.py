@@ -5,6 +5,9 @@ from django.contrib import messages
 from .forms import RendezVousForm
 from .models import RendezVous ,ServiceNoImage
 from datetime import datetime
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .serializers import RendezVousSerializer
 
 def index(request):
     return render(request, 'clinic/index.html')
@@ -85,3 +88,21 @@ from django.core.serializers import serialize
 def get_rendezvous_data(request):
     rendezvous_data = serialize('json', RendezVous.objects.all())
     return JsonResponse({'rendezvous_data': rendezvous_data})
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .serializers import AdminSerializer
+from django.contrib.auth.models import User
+
+class AdminDataApiView(APIView):
+    def get(self, request, *args, **kwargs):
+        admins = User.objects.filter(is_superuser=True)
+        serializer = AdminSerializer(admins, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+class RendezVousApiView(APIView):
+    def get(self, request, *args, **kwargs):
+        rendezvous_data = RendezVous.objects.all()
+        serializer = RendezVousSerializer(rendezvous_data, many=True)
+        return Response({'rendezvous_data': serializer.data}, status=status.HTTP_200_OK)
