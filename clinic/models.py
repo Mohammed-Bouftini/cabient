@@ -3,11 +3,11 @@ from django.dispatch import receiver
 from django.db.models.signals import pre_save
 from PIL import Image
 class RendezVous(models.Model):
-    nom = models.CharField(max_length=100, default="")
-    prenom = models.CharField(max_length=100, default="")
-    CIN = models.CharField(max_length=100, default="")
-    telephone = models.CharField(max_length=100, default="")
-    email = models.CharField(max_length=100)
+    nom = models.CharField(max_length=100)
+    prenom = models.CharField(max_length=100)
+    CIN = models.CharField(max_length=100)
+    telephone = models.CharField(max_length=100)
+    email = models.CharField(max_length=100, default="")
     date = models.DateField()
     time = models.TimeField()
     presence = models.BooleanField(default=False)
