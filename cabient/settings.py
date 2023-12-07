@@ -2,7 +2,6 @@ import os
 from pathlib import Path
 import django_heroku
 import dj_database_url
-from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -66,28 +65,22 @@ WSGI_APPLICATION = 'cabient.wsgi.application'
 
 
 #DATABASES = {
- #   'default': {
-  #     'ENGINE': 'django.db.backends.sqlite3',
-   #     'NAME': BASE_DIR / 'db.sqlite3',
-    #}
-#}
-DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL', default='postgres://localhost:5432/db_name')
-    )
-}
-
-
-#DATABASES = {
     #'default': {
-      #  'ENGINE': 'django.db.backends.mysql',
-      #  'NAME': 'cabient',
-     #   'USER': 'root',
-    #    'PASSWORD': 'Mb20000227@',
-   #     'HOST': 'localhost',  
-  #      'PORT': '3306',      
+   #     'ENGINE': 'django.db.backends.sqlite3',
+  #      'NAME': BASE_DIR / 'db.sqlite3',
  #   }
 #}
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'cabient',
+        'USER': 'root',
+        'PASSWORD': 'Mb20000227@',
+        'HOST': 'localhost',  
+        'PORT': '3306',      
+    }
+}
 
 AUTH_PASSWORD_VALIDATORS = [
     {

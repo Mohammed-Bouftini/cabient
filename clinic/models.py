@@ -5,6 +5,7 @@ from PIL import Image
 class RendezVous(models.Model):
     nom = models.CharField(max_length=100, default="")
     prenom = models.CharField(max_length=100, default="")
+    CIN = models.CharField(max_length=100, default="")
     telephone = models.CharField(max_length=100, default="")
     email = models.CharField(max_length=100)
     date = models.DateField()

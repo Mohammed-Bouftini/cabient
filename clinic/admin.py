@@ -13,7 +13,7 @@ from reportlab.lib import colors
 
 @admin.register(RendezVous)
 class RendezVousAdmin(admin.ModelAdmin):
-    list_display = ('nom', 'prenom', 'telephone', 'email', 'date', 'time', 'presence', 'modify_button')
+    list_display = ('nom', 'prenom','CIN', 'telephone', 'email', 'date', 'time', 'presence', 'modify_button')
     list_filter = ('date', 'time')
     search_fields = ('nom', 'prenom', 'telephone', 'email')
     ordering = ('date', 'time')
@@ -50,11 +50,11 @@ class RendezVousAdmin(admin.ModelAdmin):
 
    
         pdf = SimpleDocTemplate(response, pagesize=letter)
-        data = [['Nom', 'Prénom', 'Téléphone', 'Email', 'Date', 'Heure','presence']]
+        data = [['Nom', 'Prénom','CIN', 'Téléphone', 'Email', 'Date', 'Heure','presence']]
 
         for rendezvous in queryset:
             presence = 'Oui' if rendezvous.presence else 'Non'
-            data.append([rendezvous.nom, rendezvous.prenom, rendezvous.telephone, rendezvous.email,
+            data.append([rendezvous.nom,rendezvous.CIN , rendezvous.prenom, rendezvous.telephone, rendezvous.email,
                      str(rendezvous.date), str(rendezvous.time), presence])
 
     

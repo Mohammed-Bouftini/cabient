@@ -155,13 +155,13 @@ def generate_pdf(request):
 
     # Create the PDF object
     pdf = SimpleDocTemplate(response, pagesize=letter)
-    data = [['Nom', 'Prénom', 'Téléphone', 'Email', 'Date', 'Heure', 'Présence']]
+    data = [['Nom', 'Prénom','CIN', 'Téléphone', 'Email', 'Date', 'Heure', 'Présence']]
     
     # Add content to the PDF based on appointment data
     for appointment in appointments:
         # Assuming 'presence' is a boolean field
         presence = 'Oui' if appointment.presence else 'Non'
-        data.append([appointment.nom, appointment.prenom, appointment.telephone, appointment.email, appointment.date, appointment.time, presence])
+        data.append([appointment.nom, appointment.prenom,appointment.CIN, appointment.telephone, appointment.email, appointment.date, appointment.time, presence])
 
     # Create a table and style
     table = Table(data)
