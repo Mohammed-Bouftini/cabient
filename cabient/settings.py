@@ -64,23 +64,23 @@ WSGI_APPLICATION = 'cabient.wsgi.application'
 
 
 
-#DATABASES = {
-    #'default': {
-   #     'ENGINE': 'django.db.backends.sqlite3',
-  #      'NAME': BASE_DIR / 'db.sqlite3',
- #   }
-#}
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cabient',
-        'USER': 'root',
-        'PASSWORD': 'Mb20000227@',
-        'HOST': 'localhost',  
-        'PORT': '3306',      
+       'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+#DATABASES = {
+    #'default': {
+      #  'ENGINE': 'django.db.backends.mysql',
+      #  'NAME': 'cabient',
+     #   'USER': 'root',
+    #    'PASSWORD': 'Mb20000227@',
+   #     'HOST': 'localhost',  
+  #      'PORT': '3306',      
+ #   }
+#}
 
 AUTH_PASSWORD_VALIDATORS = [
     {
