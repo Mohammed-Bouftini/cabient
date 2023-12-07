@@ -53,8 +53,9 @@ class RendezVousAdmin(admin.ModelAdmin):
         data = [['Nom', 'Prénom', 'Téléphone', 'Email', 'Date', 'Heure','presence']]
 
         for rendezvous in queryset:
+            presence = 'Oui' if rendezvous.presence else 'Non'
             data.append([rendezvous.nom, rendezvous.prenom, rendezvous.telephone, rendezvous.email,
-                     str(rendezvous.date), str(rendezvous.time),str(rendezvous.presence)])
+                     str(rendezvous.date), str(rendezvous.time), presence])
 
     
         table = Table(data)

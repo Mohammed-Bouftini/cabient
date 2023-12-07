@@ -106,3 +106,77 @@ class RendezVousApiView(APIView):
         rendezvous_data = RendezVous.objects.all()
         serializer = RendezVousSerializer(rendezvous_data, many=True)
         return Response({'rendezvous_data': serializer.data}, status=status.HTTP_200_OK)
+    
+
+
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
+from .serializers import RendezVousSerializer
+from .models import RendezVous
+
+@api_view(['POST', 'PUT', 'DELETE'])
+def create_or_update_rendezvous(request, rendezvous_id=None):
+    try:
+        if request.method == 'POST':
+            # Create a new rendezvous entry
+            serializer = RendezVousSerializer(data=request.data)
+        elif request.method == 'PUT':
+            # Update an existing rendezvous entry
+            rendezvous = RendezVous.objects.get(id=rendezvous_id)
+            serializer = RendezVousSerializer(rendezvous, data=request.data)
+        elif request.method == 'DELETE':
+            # Delete an existing rendezvous entry
+            rendezvous = RendezVous.objects.get(id=rendezvous_id)
+            rendezvous.delete()
+            return Response({"message": "Rendezvous deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    except RendezVous.DoesNotExist:
+        return Response({"error": "Rendezvous not found"}, status=status.HTTP_404_NOT_FOUND)
+    
+
+from django.http import HttpResponse
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
+from reportlab.lib import colors
+from .models import RendezVous
+
+def generate_pdf(request):
+    # Fetch appointment data from the database
+    appointments = RendezVous.objects.all()
+
+    # Create a PDF file using ReportLab
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="rendezvous.pdf"'
+
+    # Create the PDF object
+    pdf = SimpleDocTemplate(response, pagesize=letter)
+    data = [['Nom', 'Prénom', 'Téléphone', 'Email', 'Date', 'Heure', 'Présence']]
+    
+    # Add content to the PDF based on appointment data
+    for appointment in appointments:
+        # Assuming 'presence' is a boolean field
+        presence = 'Oui' if appointment.presence else 'Non'
+        data.append([appointment.nom, appointment.prenom, appointment.telephone, appointment.email, appointment.date, appointment.time, presence])
+
+    # Create a table and style
+    table = Table(data)
+    style = TableStyle([('BACKGROUND', (0, 0), (-1, 0), colors.grey),
+                        ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+                        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+                        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+                        ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+                        ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
+                        ('GRID', (0, 0), (-1, -1), 1, colors.black)])
+
+    # Apply the style to the table
+    table.setStyle(style)
+
+    # Build the PDF with the table
+    pdf.build([table])
+
+    return response
