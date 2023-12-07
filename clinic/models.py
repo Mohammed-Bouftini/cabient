@@ -6,7 +6,7 @@ class RendezVous(models.Model):
     nom = models.CharField(max_length=100)
     prenom = models.CharField(max_length=100)
     CIN = models.CharField(max_length=100)
-    telephone = models.CharField(max_length=100)
+    telephone = models.CharField(max_length=100, default="")
     email = models.CharField(max_length=100, default="")
     date = models.DateField()
     time = models.TimeField()
