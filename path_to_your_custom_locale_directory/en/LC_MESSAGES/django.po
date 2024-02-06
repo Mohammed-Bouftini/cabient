@@ -1,0 +1,250 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-07 00:01+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\clinic\templates\clinic\contact.html:9
+msgid "Contactez-nous - Ma Clinique de "
+msgstr "Contact Us - My Physiotherapy Clinic"
+
+#: .\clinic\templates\clinic\contact.html:19
+#: .\clinic\templates\clinic\index.html:9
+#: .\clinic\templates\clinic\index.html:18
+#: .\clinic\templates\clinic\index.html:48
+#: .\clinic\templates\clinic\rendezvous.html:18
+#: .\clinic\templates\clinic\services.html:17
+msgid "Cabinet de kinésithérapie & physiothérapie"
+msgstr "Physiotherapy & Rehabilitation Center"
+
+#: .\clinic\templates\clinic\contact.html:22
+#: .\clinic\templates\clinic\index.html:21
+#: .\clinic\templates\clinic\rendezvous.html:21
+#: .\clinic\templates\clinic\services.html:20
+msgid "Accueil"
+msgstr "Home"
+
+#: .\clinic\templates\clinic\contact.html:23
+#: .\clinic\templates\clinic\index.html:22
+#: .\clinic\templates\clinic\rendezvous.html:22
+#: .\clinic\templates\clinic\services.html:21
+msgid "Services"
+msgstr "Services"
+
+#: .\clinic\templates\clinic\contact.html:24
+#: .\clinic\templates\clinic\index.html:23
+#: .\clinic\templates\clinic\rendezvous.html:23
+#: .\clinic\templates\clinic\services.html:22
+msgid "Contact"
+msgstr "Contact"
+
+#: .\clinic\templates\clinic\contact.html:25
+#: .\clinic\templates\clinic\index.html:24
+#: .\clinic\templates\clinic\rendezvous.html:24
+#: .\clinic\templates\clinic\services.html:23
+msgid "Rendez-vous"
+msgstr "Appointments"
+
+#: .\clinic\templates\clinic\contact.html:48
+msgid "Contactez-nous"
+msgstr "Contact Us"
+
+#: .\clinic\templates\clinic\contact.html:49
+msgid ""
+"Pour prendre rendez-vous ou pour toute question, n'hésitez pas à nous "
+"contacter :"
+msgstr ""
+"To schedule an appointment or for any inquiries, please feel free to contact "
+"us:"
+
+#: .\clinic\templates\clinic\contact.html:51
+msgid "Email : "
+msgstr "Email:"
+
+#: .\clinic\templates\clinic\contact.html:52
+msgid "Téléphone :"
+msgstr "Phone:"
+
+#: .\clinic\templates\clinic\contact.html:59
+msgid " 2023 Cabinet de kinésithérapie & physiothérapie."
+msgstr "2023 Physiotherapy & Rehabilitation Center."
+
+#: .\clinic\templates\clinic\index.html:17
+msgid "Logo de la clinique"
+msgstr "Clinic Logo"
+
+#: .\clinic\templates\clinic\index.html:49
+msgid ""
+"Nous sommes dédiés à améliorer votre santé et votre bien-être grâce à nos "
+"services de qualité."
+msgstr ""
+"We are dedicated to improving your health and well-being through our quality "
+"services."
+
+#: .\clinic\templates\clinic\index.html:52
+msgid "Votre navigateur ne prend pas en charge la balise vidéo."
+msgstr "Your browser does not support the video tag."
+
+#: .\clinic\templates\clinic\index.html:59
+#: .\clinic\templates\clinic\rendezvous.html:126
+#: .\clinic\templates\clinic\services.html:75
+msgid "2023 Cabinet de kinésithérapie & physiothérapie."
+msgstr "2023 Physiotherapy & Rehabilitation Center."
+
+#: .\clinic\templates\clinic\rendezvous.html:8
+msgid "Prendre Rendez-vous - Cabinet de kinésithérapie & physiothérapie"
+msgstr "Schedule an Appointment - Physiotherapy & Rehabilitation Center"
+
+#: .\clinic\templates\clinic\rendezvous.html:49
+msgid "Prise de Rendez-vous"
+msgstr "Appointment Booking"
+
+#: .\clinic\templates\clinic\rendezvous.html:60
+msgid "Nom :"
+msgstr "Name :"
+
+#: .\clinic\templates\clinic\rendezvous.html:63
+msgid "Prenom :"
+msgstr "First Name:"
+
+#: .\clinic\templates\clinic\rendezvous.html:66
+msgid "Téléphone:"
+msgstr "Phone:"
+
+#: .\clinic\templates\clinic\rendezvous.html:69
+msgid "Email :"
+msgstr "Email:"
+
+#: .\clinic\templates\clinic\rendezvous.html:72
+msgid "Date :"
+msgstr "Date:"
+
+#: .\clinic\templates\clinic\rendezvous.html:75
+msgid "Heure de début :"
+msgstr "Start Time:"
+
+#: .\clinic\templates\clinic\rendezvous.html:91
+msgid "Liste des Rendez-vous"
+msgstr "Appointment List"
+
+#: .\clinic\templates\clinic\rendezvous.html:96
+msgid "Nom"
+msgstr "Name"
+
+#: .\clinic\templates\clinic\rendezvous.html:97
+msgid "Prenom"
+msgstr "First Name"
+
+#: .\clinic\templates\clinic\rendezvous.html:98
+msgid "Date"
+msgstr "Date"
+
+#: .\clinic\templates\clinic\rendezvous.html:99
+msgid "Heure"
+msgstr "Time"
+
+#: .\clinic\templates\clinic\rendezvous.html:114
+msgid "Il n'y a pas de rendez-vous pour le moment."
+msgstr "There are no appointments at the moment."
+
+#: .\clinic\templates\clinic\services.html:8
+msgid "Nos Services - Ma Clinique de Physiothérapie"
+msgstr "Our Services - Physiotherapy Clinic"
+
+#: .\clinic\templates\clinic\services.html:49
+msgid "Thérapie manuelle"
+msgstr "Manual Therapy"
+
+#: .\clinic\templates\clinic\services.html:50
+msgid "Rééducation post-opératoire"
+msgstr "Post-Operative Rehabilitation"
+
+#: .\clinic\templates\clinic\services.html:51
+msgid "Rééducation en traumatologie et orthopédique"
+msgstr "Traumatology and Orthopedic Rehabilitation"
+
+#: .\clinic\templates\clinic\services.html:52
+msgid "Rééducation en rhumatologie"
+msgstr "Rheumatology Rehabilitation"
+
+#: .\clinic\templates\clinic\services.html:53
+msgid "Rééducation en neurologie"
+msgstr "Rheumatology Rehabilitation"
+
+#: .\clinic\templates\clinic\services.html:54
+msgid "Rééducation en pédiatrie"
+msgstr "Pediatric Rehabilitation"
+
+#: .\clinic\templates\clinic\services.html:55
+msgid "Rééducation en pneumologie"
+msgstr "Pulmonary Rehabilitation"
+
+#: .\clinic\templates\clinic\services.html:56
+msgid "Rééducation gériatrie"
+msgstr "Geriatric Rehabilitation"
+
+#: .\clinic\templates\clinic\services.html:57
+msgid "Kinésithérapie réspiratoire"
+msgstr "Respiratory Physiotherapy"
+
+#: .\clinic\templates\clinic\services.html:58
+msgid "Rééducation brùlure"
+msgstr "Burn Rehabilitation"
+
+#: .\clinic\templates\clinic\services.html:59
+msgid "Cupping therapie hijama"
+msgstr "Cupping Therapy (Hijama)"
+
+#: .\clinic\templates\clinic\services.html:60
+msgid "Drainage lymphatique"
+msgstr "Lymphatic Drainage"
+
+#: .\clinic\templates\clinic\services.html:61
+msgid "K-taping straping"
+msgstr "K-Taping and Strapping"
+
+#: .\clinic\templates\clinic\services.html:62
+msgid "Appareillage:"
+msgstr "Equipment:"
+
+#: .\clinic\templates\clinic\services.html:63
+msgid "Ondes de choc"
+msgstr "Shockwave Therapy"
+
+#: .\clinic\templates\clinic\services.html:64
+msgid "Thécartherapie"
+msgstr "TheraCart Therapy"
+
+#: .\clinic\templates\clinic\services.html:65
+msgid "Pressotherapie"
+msgstr "Pressotherapy"
+
+#: .\clinic\templates\clinic\services.html:66
+msgid "Ultrason"
+msgstr "Ultrasound"
+
+#: .\clinic\templates\clinic\services.html:67
+msgid "Electrostimulateur"
+msgstr "Electrotherapy"
+
+#: .\clinic\templates\clinic\services.html:68
+msgid "Ultrasons"
+msgstr "Ultrasonic Therapy"
+
+#: .\clinic\templates\clinic\services.html:69
+msgid "Soins hydrafacial"
+msgstr "Hydrafacial Treatments"
