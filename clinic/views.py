@@ -8,12 +8,9 @@ from datetime import datetime
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import RendezVousSerializer
-<<<<<<< HEAD
 from datetime import datetime
 from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet
-=======
->>>>>>> 242ae53128cdb93b4a04daa5eab8f623cf9e55e7
 
 def index(request):
     return render(request, 'clinic/index.html')
@@ -113,7 +110,7 @@ class RendezVousApiView(APIView):
         serializer = RendezVousSerializer(rendezvous_data, many=True)
         return Response({'rendezvous_data': serializer.data}, status=status.HTTP_200_OK)
     
-<<<<<<< HEAD
+
 class RendezVousApiViewID(APIView):
     def get(self, request, appointment_id, *args, **kwargs):
         try:
@@ -124,9 +121,7 @@ class RendezVousApiViewID(APIView):
             return Response({'error': 'RendezVous not found'}, status=status.HTTP_404_NOT_FOUND)
         except Exception as e:
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-=======
 
->>>>>>> 242ae53128cdb93b4a04daa5eab8f623cf9e55e7
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -139,20 +134,14 @@ def create_or_update_rendezvous(request, rendezvous_id=None):
     try:
         if request.method == 'POST':
             # Create a new rendezvous entry
-<<<<<<< HEAD
             serializer = RendezVousSerializer(rendezvous, data=request.data, partial=True)
-=======
-            serializer = RendezVousSerializer(data=request.data)
->>>>>>> 242ae53128cdb93b4a04daa5eab8f623cf9e55e7
+
         elif request.method == 'PUT':
             # Update an existing rendezvous entry
             rendezvous = RendezVous.objects.get(id=rendezvous_id)
             serializer = RendezVousSerializer(rendezvous, data=request.data)
         elif request.method == 'DELETE':
-<<<<<<< HEAD
-=======
-            # Delete an existing rendezvous entry
->>>>>>> 242ae53128cdb93b4a04daa5eab8f623cf9e55e7
+
             rendezvous = RendezVous.objects.get(id=rendezvous_id)
             rendezvous.delete()
             return Response({"message": "Rendezvous deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
@@ -167,7 +156,6 @@ def create_or_update_rendezvous(request, rendezvous_id=None):
 
 from django.http import HttpResponse
 from reportlab.lib.pagesizes import letter
-<<<<<<< HEAD
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Image, Spacer,Paragraph
 from .models import RendezVous
 
@@ -194,31 +182,7 @@ def generate_pdf(request):
         data.append([appointment.nom, appointment.prenom,appointment.CIN, appointment.telephone, appointment.email, appointment.date, appointment.time, presence])
 
     elements = [Spacer(1, 1), logo, Spacer(1, 12), date_paragraph, Spacer(1, 12)] 
-=======
-from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
-from reportlab.lib import colors
-from .models import RendezVous
 
-def generate_pdf(request):
-    # Fetch appointment data from the database
-    appointments = RendezVous.objects.all()
-
-    # Create a PDF file using ReportLab
-    response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename="rendezvous.pdf"'
-
-    # Create the PDF object
-    pdf = SimpleDocTemplate(response, pagesize=letter)
-    data = [['Nom', 'Prénom','CIN', 'Téléphone', 'Email', 'Date', 'Heure', 'Présence']]
-    
-    # Add content to the PDF based on appointment data
-    for appointment in appointments:
-        # Assuming 'presence' is a boolean field
-        presence = 'Oui' if appointment.presence else 'Non'
-        data.append([appointment.nom, appointment.prenom,appointment.CIN, appointment.telephone, appointment.email, appointment.date, appointment.time, presence])
-
-    # Create a table and style
->>>>>>> 242ae53128cdb93b4a04daa5eab8f623cf9e55e7
     table = Table(data)
     style = TableStyle([('BACKGROUND', (0, 0), (-1, 0), colors.grey),
                         ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
@@ -228,17 +192,10 @@ def generate_pdf(request):
                         ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
                         ('GRID', (0, 0), (-1, -1), 1, colors.black)])
 
-<<<<<<< HEAD
     table.setStyle(style)
 
     elements.append(table)
     pdf.build(elements)
-=======
-    # Apply the style to the table
-    table.setStyle(style)
 
-    # Build the PDF with the table
-    pdf.build([table])
->>>>>>> 242ae53128cdb93b4a04daa5eab8f623cf9e55e7
 
     return response
