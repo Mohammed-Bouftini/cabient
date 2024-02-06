@@ -2,9 +2,14 @@ import os
 from pathlib import Path
 import django_heroku
 import dj_database_url
+import environ
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+#env= environ.Env()
+#environ.Env.read.env()
 
 
 # Quick-start development settings - unsuitable for production
@@ -32,6 +37,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -82,6 +88,10 @@ DATABASES = {
 
     }
 }
+#DATABASES = {
+ #   'default':dj_database_url.parse(env('DATABASE_URL'))
+#}
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -115,6 +125,8 @@ LOCALE_PATHS = [os.path.join(BASE_DIR, 'path_to_your_custom_locale_directory')]
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static']
+
+STATICFILES_STORAGE = 'whitenoise.storages.CompressedManifesStaticFilesStorage'
 
 MEDIA_URL = '/images/'
 MEDIA_ROOT = BASE_DIR / 'static/images'
