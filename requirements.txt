@@ -52,4 +52,4 @@ typing_extensions==4.9.0
 tzdata==2023.4
 wcwidth==0.2.13
 whitenoise==6.6.0
-pywin32>=300,<307
+pywin32>=300,<308
