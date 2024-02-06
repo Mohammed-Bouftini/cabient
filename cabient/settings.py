@@ -79,6 +79,7 @@ DATABASES = {
         'PASSWORD': 'Mb20000227@',
         'HOST': 'localhost',
         'PORT': '3307',
+
     }
 }
 

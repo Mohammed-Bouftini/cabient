@@ -7,16 +7,26 @@ from django.utils.html import format_html
 from reportlab.pdfgen import canvas
 from django.http import HttpResponse
 from reportlab.lib.pagesizes import letter
+<<<<<<< HEAD
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Image, Spacer, Paragraph
 from datetime import datetime
 from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet
+=======
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
+from reportlab.lib import colors
+
+>>>>>>> 242ae53128cdb93b4a04daa5eab8f623cf9e55e7
 
 @admin.register(RendezVous)
 class RendezVousAdmin(admin.ModelAdmin):
     list_display = ('nom', 'prenom','CIN', 'telephone', 'email', 'date', 'time', 'presence', 'modify_button')
     list_filter = ('date', 'time')
+<<<<<<< HEAD
     search_fields = ('nom','CIN' ,'prenom', 'telephone', 'email')
+=======
+    search_fields = ('nom', 'prenom', 'telephone', 'email')
+>>>>>>> 242ae53128cdb93b4a04daa5eab8f623cf9e55e7
     ordering = ('date', 'time')
     
     actions = ['supprimer_rendezvous_expires', 'telecharger_rendezvous_pdf','toggle_presence']
@@ -43,7 +53,11 @@ class RendezVousAdmin(admin.ModelAdmin):
         return format_html('<a href="{}">Modifier</a>', change_url)
 
     modify_button.short_description = 'Modifier'
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 242ae53128cdb93b4a04daa5eab8f623cf9e55e7
     def telecharger_rendezvous_pdf(self, request, queryset):
 
         response = HttpResponse(content_type='application/pdf')
@@ -51,6 +65,7 @@ class RendezVousAdmin(admin.ModelAdmin):
 
    
         pdf = SimpleDocTemplate(response, pagesize=letter)
+<<<<<<< HEAD
 
         logo_path = 'static/images/logopdf.png'  # Replace with the actual path to your logo
         logo = Image(logo_path, width=70, height=70)
@@ -60,14 +75,22 @@ class RendezVousAdmin(admin.ModelAdmin):
         date_paragraph = Paragraph(f'<b>Date:</b> {current_date}', getSampleStyleSheet()['BodyText'])
 
         data = [['Nom', 'Prénom','CIN', 'Téléphone', 'Email', 'Date', 'Heure','Presence']]
+=======
+        data = [['Nom', 'Prénom','CIN', 'Téléphone', 'Email', 'Date', 'Heure','presence']]
+>>>>>>> 242ae53128cdb93b4a04daa5eab8f623cf9e55e7
 
         for rendezvous in queryset:
             presence = 'Oui' if rendezvous.presence else 'Non'
             data.append([rendezvous.nom,rendezvous.CIN , rendezvous.prenom, rendezvous.telephone, rendezvous.email,
                      str(rendezvous.date), str(rendezvous.time), presence])
+<<<<<<< HEAD
         
 
         elements = [Spacer(1, 1), logo, Spacer(1, 12), date_paragraph, Spacer(1, 12)] 
+=======
+
+    
+>>>>>>> 242ae53128cdb93b4a04daa5eab8f623cf9e55e7
         table = Table(data)
         style = TableStyle([('BACKGROUND', (0, 0), (-1, 0), colors.grey),
                         ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
@@ -79,8 +102,12 @@ class RendezVousAdmin(admin.ModelAdmin):
         table.setStyle(style)
 
   
+<<<<<<< HEAD
         elements.append(table)
         pdf.build(elements)
+=======
+        pdf.build([table])
+>>>>>>> 242ae53128cdb93b4a04daa5eab8f623cf9e55e7
         return response
     telecharger_rendezvous_pdf.short_description = "Télécharger les rendez-vous en PDF"
 
