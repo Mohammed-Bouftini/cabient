@@ -78,17 +78,28 @@ WSGI_APPLICATION = 'cabient.wsgi.application'
  #   }
 #}
 
+#DATABASES = {
+#    'default': {
+ #       'ENGINE': 'django.db.backends.mysql',
+  #      'NAME': 'cabinet',
+   #     'USER': 'root',
+    #    'PASSWORD': 'Mb20000227@',
+     #   'HOST': 'localhost',
+      #  'PORT': '3307',
+
+    #}
+#}
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cabinet',
-        'USER': 'root',
-        'PASSWORD': 'Mb20000227@',
-        'HOST': 'localhost',
-        'PORT': '3307',
-
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'cabinet_wz1l',
+        'USER': 'cabinet_wz1l_user',
+        'PASSWORD': '3E4o4YmWuYlioYQHeKUpeDpctbMYRyYc',
+        'HOST': 'dpg-cn1oue8l5elc73dakbmg-a.oregon-postgres.render.com',
+        'PORT': '5432',
     }
 }
+
 #DATABASES = {
  #   'default':dj_database_url.parse(env('DATABASE_URL'))
 #}
