@@ -4,7 +4,6 @@ from .models import RendezVous, Service, ServiceNoImage
 from PIL import Image
 from django.urls import reverse
 from django.utils.html import format_html
-from reportlab.pdfgen import canvas
 from django.http import HttpResponse
 from reportlab.lib.pagesizes import letter
 

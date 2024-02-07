@@ -2,10 +2,11 @@ from django.db import models
 from django.dispatch import receiver
 from django.db.models.signals import pre_save
 from PIL import Image
+
 class RendezVous(models.Model):
 
     nom = models.CharField(max_length=255)
-    prenom = models.CharField(max_length=255)  # Updated field name
+    prenom = models.CharField(max_length=255) 
     CIN = models.CharField(max_length=20)
     telephone = models.CharField(max_length=15)
     email = models.EmailField(max_length=50, default="")
@@ -46,7 +47,7 @@ def service_pre_save(sender, instance, **kwargs):
         try:
             with Image.open(instance.image.path) as img:
                 img.thumbnail((100, 100))
-                img.save(instance.image.path)
+                img.save(instance.image.path, format='JPEG', quality=85)
         except FileNotFoundError:
             pass
         except Exception as e:
