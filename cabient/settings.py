@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_heroku',
     'clinic', 
+    'reportlab',
 ]
 
 MIDDLEWARE = [
