@@ -79,15 +79,15 @@ WSGI_APPLICATION = 'cabient.wsgi.application'
 #}
 
 #DATABASES = {
-#    'default': {
- #       'ENGINE': 'django.db.backends.mysql',
+   #'default': {
+   #     'ENGINE': 'django.db.backends.mysql',
   #      'NAME': 'cabinet',
-   #     'USER': 'root',
-    #    'PASSWORD': 'Mb20000227@',
-     #   'HOST': 'localhost',
-      #  'PORT': '3307',
+ #      'USER': 'root',
+ #      'PASSWORD': 'Mb20000227@',
+ #      'HOST': 'localhost',
+ #      'PORT': '3307',
 
-    #}
+ #   }
 #}
 DATABASES = {
     'default': {
@@ -138,7 +138,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
-STATICFILES_STORAGE = 'whitenoise.storages.CompressedManifesStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/images/'
 MEDIA_ROOT = BASE_DIR / 'static/images'

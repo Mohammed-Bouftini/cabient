@@ -6,7 +6,6 @@ from django.urls import reverse
 from django.utils.html import format_html
 from django.http import HttpResponse
 from reportlab.lib.pagesizes import letter
-
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Image, Spacer, Paragraph
 from datetime import datetime
 from reportlab.lib import colors
@@ -26,11 +25,10 @@ class RendezVousAdmin(admin.ModelAdmin):
 
 
     def toggle_presence(self, request, queryset):
-        # Inverser la valeur de présence pour les rendez-vous sélectionnés
         for rendezvous in queryset:
             rendezvous.presence = not rendezvous.presence
             rendezvous.save()
-    toggle_presence.short_description = "Toggle Presence"  # Libellé de l'action
+    toggle_presence.short_description = "Toggle Presence"  
 
     def supprimer_rendezvous_expires(self, request, queryset):
         current_date = timezone.now().date()
@@ -56,7 +54,7 @@ class RendezVousAdmin(admin.ModelAdmin):
         pdf = SimpleDocTemplate(response, pagesize=letter)
 
 
-        logo_path = 'static/images/logopdf.png'  # Replace with the actual path to your logo
+        logo_path = 'static/images/logopdf.png'  
         logo = Image(logo_path, width=70, height=70)
         logo.hAlign = 'CENTER'
 
@@ -93,10 +91,6 @@ class RendezVousAdmin(admin.ModelAdmin):
         return response
     telecharger_rendezvous_pdf.short_description = "Télécharger les rendez-vous en PDF"
 
-   
-
-    
-
 
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
@@ -105,7 +99,7 @@ class ServiceAdmin(admin.ModelAdmin):
 
     def display_image(self, obj):
         try:
-            if obj.image:
+            if obj.image and hasattr(obj.image, 'path'):
                 with Image.open(obj.image.path) as img:
                     img.thumbnail((100, 100))
                     return format_html('<img src="{}" width="{}" height="{}" />'.format(obj.image.url, img.width, img.height))
@@ -116,14 +110,13 @@ class ServiceAdmin(admin.ModelAdmin):
         except Exception as e:
             return f"Error displaying image: {str(e)}"
 
-
     display_image.short_description = 'Image'
 
     def modify_button(self, obj):
         change_url = reverse('admin:%s_%s_change' % (obj._meta.app_label, obj._meta.model_name), args=[obj.id])
         return format_html('<a href="{}">Modifier</a>', change_url)
 
-    modify_button.short_description = 'Modifier'
+    modify_button.short_description = 'Modifier' 
 
 
 @admin.register(ServiceNoImage)
@@ -136,3 +129,7 @@ class ServiceNoImageAdmin(admin.ModelAdmin):
         return format_html('<a href="{}">Modifier</a>', change_url)
 
     modify_button.short_description = 'Modifier'
+
+from django.http import HttpResponse
+from PIL import Image
+
