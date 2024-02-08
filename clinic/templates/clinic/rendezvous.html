@@ -55,19 +55,20 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
         <form id="appointment-form" method="post" action="{% url 'prendre_rendezvous' %}">
             {% csrf_token %}
             {% if messages %}
-            <ul class="messages" >
-                {% for message in messages %}
-                <p class="success-message"><li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li></p>
-                {% endfor %}
-            </ul>
+                <ul class="messages">
+                    {% for message in messages %}
+                        <p class="success-message"><li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li></p>
+                    {% endfor %}
+                </ul>
             {% endif %}
+        
             <label for="name"><i class="fas fa-user"></i> {% trans "Nom :" %}</label>
             <input type="text" id="name" name="nom" required>
         
             <label for="name"><i class="fas fa-user"></i> {% trans "Prenom :" %}</label>
             <input type="text" id="name" name="prenom" required>
-
-            <label for="name"><i class="fa-solid fa-id-card"></i> {% trans "CIN :" %}</label>
+        
+            <label for="name"><i class="fas fa-id-card"></i> {% trans "CIN :" %}</label>
             <input type="text" id="name" name="CIN" required>
         
             <label for="name"><i class="fas fa-phone"></i> {% trans "Téléphone:" %}</label>
@@ -81,18 +82,53 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
         
             <label for="time"><i class="far fa-clock"></i> {% trans "Heure de début :" %}</label>
             <select id="time" name="time" required>
-                <option value="09:00">09:00</option>
-                <option value="10:00">10:00</option>
-                <option value="11:00">11:00</option>
-                <option value="13:00">13:00</option>
-                <option value="14:00">14:00</option>
-                <option value="15:00">15:00</option>
-                <option value="16:00">16:00</option>
-                <option value="17:00">17:00</option>
+                <!-- Options will be dynamically updated based on the selected date -->
             </select>
-            
+        
             <input type="submit" value="Réserver">
+        
+            <script>
+                document.getElementById('date').addEventListener('change', function () {
+                    updateAvailableTimeSlots();
+                });
+        
+                updateAvailableTimeSlots();
+        
+                function updateAvailableTimeSlots() {
+                    var selectedDate = new Date(document.getElementById('date').value);
+                    var dayOfWeek = selectedDate.getDay();
+        
+                    var timeSelect = document.getElementById('time');
+                    timeSelect.innerHTML = ''; 
+        
+                    if (dayOfWeek >= 1 && dayOfWeek <= 5) { 
+                        addTimeOption('09:00');
+                        addTimeOption('10:00');
+                        addTimeOption('11:00');
+                        addTimeOption('12:00');
+                        addTimeOption('14:00');
+                        addTimeOption('15:00');
+                        addTimeOption('16:00');
+                        addTimeOption('17:00');
+                    } else if (dayOfWeek === 6) { 
+                        addTimeOption('09:00');
+                        addTimeOption('10:00');
+                        addTimeOption('11:00');
+                        addTimeOption('12:00');
+                    } else {
+                        // Handle other days (Sunday) if needed
+                    }
+                }
+        
+                function addTimeOption(time) {
+                    var option = document.createElement('option');
+                    option.value = time;
+                    option.text = time;
+                    document.getElementById('time').add(option);
+                }
+            </script>
         </form>
+
      
     </section>
     <section class="appointment-section">
