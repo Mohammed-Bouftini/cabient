@@ -18,34 +18,38 @@
 <body>
     <header>
         <div class="container">
-            <img class="logo" src="{% static 'images/logo.png' %}" alt="Logo de la clinique">
-            <h1 >{% trans "Cabinet de kinésithérapie & physiothérapie"%}</h1>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <img class="logo" src="{% static 'images/logo.png' %}" alt="{% trans 'Logo de la clinique' %}">
+            <h1>{% trans "Cabinet de kinésithérapie & physiothérapie" %}</h1>
             <nav>
                 <ul>
-                  <li><a href="{% url 'index' %}" >{% trans 'Accueil' %}</a></li>
-                  <li><a href="{% url 'services' %}" >{% trans 'Services' %}</a></li>
-                  <li><a href="{% url 'contact' %}">{% trans 'Contact' %}</a></li>
-                  <li><a href="{% url 'rendezvous' %}" >{% trans 'Rendez-vous' %}</a></li>
+                    <li><a href="{% url 'index' %}" >{% trans 'Accueil' %}</a></li>
+                    <li><a href="{% url 'services' %}" >{% trans 'Services' %}</a></li>
+                    <li><a href="{% url 'contact' %}">{% trans 'Contact' %}</a></li>
+                    <li><a href="{% url 'rendezvous' %}" >{% trans 'Rendez-vous' %}</a></li>
                 </ul>
-              
                 <div class="centered-container">
-                  <form action="{% url 'set_language' %}" method="post" class="language-selector-container">
-                      {% csrf_token %}
-                      <input name="next" type="hidden" value="{{ redirect_to }}">
-                      <select name="language" class="custom-select" onchange="this.form.submit()">
-                          {% get_current_language as LANGUAGE_CODE %}
-                          {% get_available_languages as LANGUAGES %}
-                          {% get_language_info_list for LANGUAGES as languages %}
-                          {% for language in languages %}
-                          <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected {% endif %}>
-                              <img src="{% static 'images/' %}{{ language.code }}.png" alt="{{ language.name_local }}" width="16" height="16">
-                              {{ language.name_local }} ({{ language.code }})
-                          </option>
-                          {% endfor %}
-                      </select>
-                  </form>
-              </div>              
-              </nav> 
+                    <form action="{% url 'set_language' %}" method="post" class="language-selector-container">
+                        {% csrf_token %}
+                        <input name="next" type="hidden" value="{{ redirect_to }}">
+                        <select name="language" class="custom-select" onchange="this.form.submit()">
+                            {% get_current_language as LANGUAGE_CODE %}
+                            {% get_available_languages as LANGUAGES %}
+                            {% get_language_info_list for LANGUAGES as languages %}
+                            {% for language in languages %}
+                            <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected {% endif %}>
+                                <img src="{% static 'images/' %}{{ language.code }}.png" alt="{{ language.name_local }}" width="16" height="16">
+                                {{ language.name_local }} ({{ language.code }})
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </form>
+                </div>
+            </nav>
         </div>
     </header>
     <main>
