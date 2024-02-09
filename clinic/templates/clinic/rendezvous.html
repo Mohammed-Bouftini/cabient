@@ -15,20 +15,16 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
 <body>
     <header>
         <div class="container">
-            <div class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <img class="logo" src="{% static 'images/logo.png' %}" alt="{% trans 'Logo de la clinique' %}">
-            <h1>{% trans "Cabinet de kinésithérapie & physiothérapie" %}</h1>
+            <img class="logo" src="{% static 'images/logo.png' %}" alt="Logo de la clinique">
+            <h1 >{% trans "Cabinet de kinésithérapie & physiothérapie"%}</h1>
             <nav>
                 <ul>
-                    <li><a href="{% url 'index' %}" >{% trans 'Accueil' %}</a></li>
-                    <li><a href="{% url 'services' %}" >{% trans 'Services' %}</a></li>
-                    <li><a href="{% url 'contact' %}">{% trans 'Contact' %}</a></li>
-                    <li><a href="{% url 'rendezvous' %}" >{% trans 'Rendez-vous' %}</a></li>
+                  <li><a href="{% url 'index' %}" >{% trans 'Accueil' %}</a></li>
+                  <li><a href="{% url 'services' %}" >{% trans 'Services' %}</a></li>
+                  <li><a href="{% url 'contact' %}">{% trans 'Contact' %}</a></li>
+                  <li><a href="{% url 'rendezvous' %}" >{% trans 'Rendez-vous' %}</a></li>
                 </ul>
+              
                 <div class="centered-container">
                     <form action="{% url 'set_language' %}" method="post" class="language-selector-container">
                         {% csrf_token %}
@@ -46,7 +42,8 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
                         </select>
                     </form>
                 </div>
-            </nav>
+                
+              </nav> 
         </div>
     </header>
  {% block content %}
