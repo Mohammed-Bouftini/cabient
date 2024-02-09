@@ -19,7 +19,7 @@
     <header>
         <div class="container">
             <img class="logo" src="{% static 'images/logo.png' %}" alt="Logo de la clinique">
-            <h1 >{% trans "Cabinet de kinésithérapie & physiothérapie"%}</h1>
+            <h1 >{% trans "Cabinet Pt Affous"%}</h1>
             <nav>
                 <ul>
                   <li><a href="{% url 'index' %}" >{% trans 'Accueil' %}</a></li>
@@ -50,6 +50,50 @@
     </header>
     <main>
         <section>
+        <h2>{% trans "Contactez-nous" %}</h2>
+        <p>{% trans "Pour prendre rendez-vous ou pour toute question, n'hésitez pas à nous contacter :" %}</p>
+        <address>
+            <i class="fas fa-envelope"></i> {% trans "Email :" %}
+            <a href="mailto:ouadie.affous.oa@gmail.com">ouadie.affous.oa@gmail.com</a><br>
+            <i class="fas fa-phone"></i> {% trans "Téléphone :" %}
+            <a href="tel:+212690153603">+212 6 90 15 36 03</a>
+        </address>
+    
+        <form class="contact" id="appointment-form" method="post" action="{% url 'contact' %}">
+            {% csrf_token %}
+            
+            <!-- Display success message -->
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        
+            <label for="name">{% trans "Vos noms et prénoms (obligatoire)" %}</label>
+            <input type="text" id="name" name="name" required>
+        
+            <label for="phone">{% trans "Votre téléphone (obligatoire)" %}</label>
+            <input type="text" id="phone" name="phone" pattern="[0-9]{10}" title="{% trans 'Veuillez entrer un numéro de téléphone à 10 chiffres' %}" required>
+        
+            <label for="email">{% trans "Votre email (obligatoire)" %}</label>
+            <input type="email" id="email" name="email" required>
+        
+            <label for="subject">{% trans "Sujet" %}</label>
+            <input type="text" id="subject" name="subject">
+        
+            <label for="message">{% trans "Votre message" %}</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+        
+            <input type="submit" value="{% trans 'Réserver' %}">
+        </form>
+        
+    
+        <img src="{% static 'images/contact.png' %}" alt="Contactez-nous">
+    </section>
+    
+     <!--   <section>
             <h2 >{% trans "Contactez-nous"%}</h2>
             <p>{% trans "Pour prendre rendez-vous ou pour toute question, n'hésitez pas à nous contacter :"%}</p>
             <address>
@@ -58,12 +102,12 @@
                 <i class="fas fa-phone"></i> {% trans "Téléphone :" %}
                  <a href="tel:+212633571960">+212 6 33 57 19 60</a>
             </address>
-
+--> 
            <!--<div id="map" style="height: 400px;"></div>--> 
 
-            <img src="{% static 'images/contact.png' %}" alt="Contactez-nous">
-        </section>
-    </main>
+           <!--- <img src="{% static 'images/contact.png' %}" alt="Contactez-nous">
+        </section>->
+    </main>--> 
   <!-- <script src="https://www.google.com/maps/place/Cabient+Ouadie+Affousse/@33.8844628,-5.0375567,17z/data=!4m14!1m7!3m6!1s0xd9f89003b1da1eb:0x4ef84094e3a68c0!2sCabient+Ouadie+Affousse!8m2!3d33.8844628!4d-5.0375567!16s%2Fg%2F11ld8p5jwb!3m5!1s0xd9f89003b1da1eb:0x4ef84094e3a68c0!8m2!3d33.8844628!4d-5.0375567!16s%2Fg%2F11ld8p5jwb?entry=ttu" defer></script>
 
     

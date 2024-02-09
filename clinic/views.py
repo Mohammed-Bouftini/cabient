@@ -17,7 +17,7 @@ from django.contrib.auth.models import User
 from django.core.serializers import serialize
 
 
-
+from .models import Contact
 
 def index(request):
     return render(request, 'clinic/index.html')
@@ -38,7 +38,25 @@ def rendezvous(request):
 
 
 def contact(request):
-    return render(request, 'clinic/contact.html')
+    if request.method == 'POST':
+        # Your form processing logic here
+        # Assuming you save the form data in the database
+        Contact.objects.create(
+            name=request.POST['name'],
+            phone=request.POST['phone'],
+            email=request.POST['email'],
+            subject=request.POST['subject'],
+            message=request.POST['message'],
+        )
+
+        # Add a success message
+        messages.success(request, 'Votre message a été envoyé avec succès!')
+
+        # Redirect to the same page to avoid form resubmission on page refresh
+        return redirect('contact')
+
+    contacts = Contact.objects.all().order_by('-created_at')
+    return render(request, 'clinic/contact.html', {'contacts': contacts})
 
 def adminlogin(request):
     return render(request, 'clinic/adminlogin.html')

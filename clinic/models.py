@@ -2,6 +2,22 @@ from django.db import models
 from django.dispatch import receiver
 from django.db.models.signals import pre_save
 from PIL import Image
+from django.utils.translation import gettext_lazy as _
+
+class Contact(models.Model):
+    name = models.CharField(_("Noms et prénoms"), max_length=255)
+    phone = models.CharField(_("Téléphone"), max_length=10)
+    email = models.EmailField(_("Email"))
+    subject = models.CharField(_("Sujet"), max_length=255, blank=True, null=True)
+    message = models.TextField(_("Message"))
+    created_at = models.DateTimeField(_("Date de création"), auto_now_add=True)
+
+    def __str__(self):
+      return f"Message from {self.name} ({self.email}): {self.subject}"
+
+    class Meta:
+        verbose_name = _("Contact")
+        verbose_name_plural = _("Contacts")
 
 class RendezVous(models.Model):
 
@@ -15,7 +31,7 @@ class RendezVous(models.Model):
     presence = models.BooleanField()
 
     def __str__(self):
-        return f"Rendez-vous with {self.nom} {self.prenom} on {self.telephone} {self.email} on {self.date} at {self.time}"
+         return f"Rendez-vous with {self.nom} {self.prenom} ({self.CIN}) on {self.date} at {self.time}. Contact: {self.telephone}, {self.email}. Presence: {self.presence}"
     
 
     nom = models.CharField(max_length=100)

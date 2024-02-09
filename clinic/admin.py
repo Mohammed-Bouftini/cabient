@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils import timezone
-from .models import RendezVous, Service, ServiceNoImage
+from .models import RendezVous, Service, ServiceNoImage,Contact
 from PIL import Image
 from django.urls import reverse
 from django.utils.html import format_html
@@ -12,6 +12,11 @@ from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet
 
 
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ['name', 'phone', 'email', 'subject', 'created_at']
+    search_fields = ['name', 'email', 'phone', 'subject', 'message']
+    list_filter = ['created_at']
 
 @admin.register(RendezVous)
 class RendezVousAdmin(admin.ModelAdmin):
