@@ -22,14 +22,14 @@ header {
     color: white;
     padding: 1rem 0;
     text-align: center;
-    overflow: hidden; /* Établir le contexte de bloc pour les éléments flottants */
+    overflow: hidden; 
 }
 
 header .logo {
-    max-width: 150px;
+    max-width: 100px;
     height: auto;
     display: block;
-    margin: 0;
+    margin: 0 auto;
     float: left;
 }
 
