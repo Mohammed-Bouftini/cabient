@@ -46,7 +46,6 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
               </nav> 
         </div>
     </header>
- <!-- your_template_name.html -->
  {% block content %}
 <main>
     <section>
@@ -133,31 +132,38 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
     </section>
     <section class="appointment-section">
         <h2>{% trans "Liste des Rendez-vous" %}</h2>
+    
         {% if liste_rendezvous %}
-        <table class="appointment-table">
-            <thead>
-                <tr>
-                    <th>{% trans "Nom" %}</th>
-                    <th>{% trans "Prenom" %}</th>
-                    <th>{% trans "Date" %}</th>
-                    <th>{% trans "Heure" %}</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for rendezvous in liste_rendezvous %}
-                <tr class="appointment-row">
-                    <td>{{ rendezvous.nom }}</td>
-                    <td>{{ rendezvous.prenom }}</td>
-                    <td>{{ rendezvous.date }}</td>
-                    <td>{{ rendezvous.time }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+            {% regroup liste_rendezvous by date as grouped_dates %}
+            {% for date_group in grouped_dates %}
+                <h3 style="margin-top: 15px;">{{ date_group.grouper }}</h3>
+    
+                <table class="appointment-table">
+                    <thead>
+                        <tr>
+                            <th>{% trans "Nom" %}</th>
+                            <th>{% trans "Prenom" %}</th>
+                            <th>{% trans "Date" %}</th>
+                            <th>{% trans "Heure" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for rendezvous in date_group.list %}
+                            <tr class="appointment-row">
+                                <td>{{ rendezvous.nom }}</td>
+                                <td>{{ rendezvous.prenom }}</td>
+                                <td>{{ rendezvous.date }}</td>
+                                <td>{{ rendezvous.time }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endfor %}
         {% else %}
-        <p>{% trans "Il n'y a pas de rendez-vous pour le moment." %}</p>
+            <p>{% trans "Il n'y a pas de rendez-vous pour le moment." %}</p>
         {% endif %}
     </section>
+    
     
     <img src="{% static 'images/rendezvous1.png' %}" alt="Prendre Rendez-vous">
 </main>

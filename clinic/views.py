@@ -106,7 +106,7 @@ class RendezVousApiViewID(APIView):
             serializer = RendezVousSerializer(rendezvous_instance)
             return Response({'rendezvousid_data': serializer.data}, status=status.HTTP_200_OK)
         except RendezVous.DoesNotExist:
-            return Response({'error': 'RendezVous not found'}, status=status.HTTP_404_NOT_FOUND)
+            return Response({'error': 'RendezVous introuvable'}, status=status.HTTP_404_NOT_FOUND)
         except Exception as e:
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
@@ -124,14 +124,14 @@ def create_or_update_rendezvous(request, rendezvous_id=None):
 
             rendezvous = RendezVous.objects.get(id=rendezvous_id)
             rendezvous.delete()
-            return Response({"message": "Rendezvous deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
+            return Response({"message": "Rendez-vous supprimé avec succès"}, status=status.HTTP_204_NO_CONTENT)
 
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     except RendezVous.DoesNotExist:
-        return Response({"error": "Rendezvous not found"}, status=status.HTTP_404_NOT_FOUND)
+        return Response({"error": "RendezVous introuvable"}, status=status.HTTP_404_NOT_FOUND)
 
 def generate_pdf(request):
     
