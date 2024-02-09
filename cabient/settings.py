@@ -5,23 +5,15 @@ import dj_database_url
 #import environ
 
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-#env= environ.Env()
-#environ.Env.read.env()
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'your-secret-key')
 DEBUG = os.getenv('DEBUG', True)
 
 ALLOWED_HOSTS = []
 
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -99,11 +91,6 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
-#DATABASES = {
- #   'default':dj_database_url.parse(env('DATABASE_URL'))
-#}
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {

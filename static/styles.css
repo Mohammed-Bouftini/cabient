@@ -274,7 +274,6 @@ form select[name="time"] option {
     }
 }
 */
-/* Réinitialisation des styles de base */
 body, h1, h2, h3, p, ul, li, form, input, label, video {
     margin: 0;
     padding: 0;
@@ -287,7 +286,6 @@ body {
     background-color: #f5f5f5;
 }
 
-/* Styles généraux */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -298,20 +296,29 @@ header {
     background-color: #333;
     color: white;
     padding: 1rem 0;
-    text-align: center;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 header .logo {
-    max-width: 150px; /* Ajustez la taille selon vos besoins */
+    max-width: 100px; 
     height: auto;
     display: block;
-    margin: 0 auto;
+    margin-right: 20px; /* Adjust margin as needed */
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    justify-content: center;
     margin-top: 20px;
 }
 
@@ -337,7 +344,6 @@ main {
     padding: 2rem;
 }
 
-/* Styles spécifiques aux pages */
 section {
     margin-bottom: 2rem;
 }
@@ -353,7 +359,6 @@ ul {
     margin-bottom: 1rem;
 }
 
-/* Styles du formulaire */
 form {
     max-width: 400px;
     margin: 0 auto;
@@ -391,7 +396,6 @@ form input[type="submit"]:hover {
     background-color: #555;
 }
 
-/* Styles spécifiques à la page d'accueil */
 .hero {
     text-align: center;
     padding: 4rem 0;
@@ -451,15 +455,12 @@ video {
     border-color: #0056b3;
 }
 
-/* Style for success messages */
 .success-message {
-    color: green; /* Change this to your desired color */
+    color: green;
 }
 
-/* Ajoutez ces règles à votre fichier styles.css */
-
 .appointment-section {
-    text-align: center; /* Centre le contenu horizontalement */
+    text-align: center; 
     margin-top: 20px;
 }
 
@@ -467,7 +468,7 @@ video {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    margin: 0 auto; /* Centre le tableau horizontalement */
+    margin: 0 auto; 
 }
 
 .appointment-table th,
@@ -485,14 +486,14 @@ video {
     background-color: #f2f2f2;
 }
 
-/* Style pour le champ de sélection d'heure */
+
 form select[name="time"] {
     width: 100%;
     padding: 0.3rem;
     margin-bottom: 1rem;
     border: 1px solid #ccc;
     border-radius: 3px;
-    appearance: none; /* Supprime le style par défaut du navigateur */
+    appearance: none;
     background-color: white;
     color: #333;
 }
@@ -502,43 +503,41 @@ form select[name="time"] option {
     color: #333;
 }
 
-/* Style du conteneur */
 .centered-container {
     text-align: center;
     margin: 20px;
 }
 
-/* Style du sélecteur de langue */
 .language-selector-container {
     margin: 10px;
     padding: 10px;
     background-color: #f5f5f5;
     border: 1px solid #ddd;
     border-radius: 5px;
-    display: inline-block; /* Ajoutez cette ligne pour afficher le formulaire en ligne */
+    display: inline-block; 
 }
 
-/* Style du select */
+
 .custom-select {
     width: 150px;
     height: 30px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background: transparent; /* Ajoutez cette ligne pour un arrière-plan transparent */
-    padding: 5px; /* Ajoutez un peu d'espace intérieur pour le texte */
+    background: transparent; 
+    padding: 5px; 
 }
 
-/* Style des options du select */
+
 .custom-select option {
-    background-color: #f5f5f5; /* Couleur d'arrière-plan des options */
-    color: #333; /* Couleur du texte des options */
-    padding: 5px; /* Ajoutez un peu d'espace intérieur aux options */
+    background-color: #f5f5f5; 
+    color: #333; 
+    padding: 5px; 
 }
 
-/* Style pour l'image à l'intérieur de l'option */
+
 .custom-select option img {
-    vertical-align: middle; /* Centrez l'image verticalement */
-    margin-right: 5px; /* Ajoutez un espace à droite de l'image */
+    vertical-align: middle; 
+    margin-right: 5px; 
 }
 
  
@@ -569,50 +568,50 @@ form select[name="time"] option {
     }
 
     nav ul {
-        margin-top: 8px; /* Ajustez l'espacement du menu de navigation */
+        margin-top: 8px; 
     }
 
     nav ul li {
-        margin-right: 8px; /* Ajustez l'espacement entre les éléments du menu */
+        margin-right: 8px; 
     }
 
     nav ul li a {
-        padding: 5px; /* Ajustez la taille des liens du menu */
+        padding: 5px; 
     }
 
     main {
-        padding: 1rem; /* Ajustez l'espacement du contenu principal */
+        padding: 1rem; 
     }
 
     section {
-        margin-bottom: 1rem; /* Ajustez l'espacement entre les sections */
+        margin-bottom: 1rem; 
     }
 
     h2 {
-        font-size: 1.5rem; /* Ajustez la taille de la police pour les titres h2 */
+        font-size: 1.5rem; 
     }
 
     ul {
-        margin-left: 1rem; /* Ajustez le décalage de la liste à puces */
+        margin-left: 1rem; 
     }
 
     form {
-        max-width: 100%; /* Ajustez la largeur maximale du formulaire */
-        padding: 0.5rem; /* Ajustez les marges intérieures du formulaire */
+        max-width: 100%; 
+        padding: 0.5rem; 
     }
 
     form input[type="text"],
     form input[type="email"],
     form input[type="date"] {
-        width: 100%; /* Remplit la largeur du formulaire */
+        width: 100%; 
     }
 
     form input[type="submit"] {
-        padding: 0.3rem 0.7rem; /* Ajustez la taille du bouton du formulaire */
+        padding: 0.3rem 0.7rem; 
     }
     img {
-        max-width: 100%; /* Les images ne dépasseront pas la largeur du conteneur */
-        height: auto; /* Maintient le ratio hauteur/largeur */
+        max-width: 100%; 
+        height: auto; 
     }
-    /* Ajustez d'autres styles spécifiques au besoin pour les petits écrans */
+    
 }

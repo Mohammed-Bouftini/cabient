@@ -1,16 +1,23 @@
-from django.shortcuts import render
-from .models import Service
+from .models import Service,RendezVous ,ServiceNoImage
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import RendezVousForm
-from .models import RendezVous ,ServiceNoImage
 from datetime import datetime
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import RendezVousSerializer
-from datetime import datetime
+from .serializers import RendezVousSerializer,AdminSerializer
 from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet
+from rest_framework.decorators import api_view
+from rest_framework import status
+from django.http import HttpResponse ,JsonResponse
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Image, Spacer,Paragraph
+from django.contrib.auth.models import User
+from django.core.serializers import serialize
+
+
+
 
 def index(request):
     return render(request, 'clinic/index.html')
@@ -20,15 +27,9 @@ def services(request):
     servicesnoimages = ServiceNoImage.objects.all()
     return render(request, 'clinic/services.html', {'services': services , 'servicesnoimages':servicesnoimages})
 
-#def servicesnoimages(request):
-   # servicesnoimages = ServiceNoImage.objects.all()
-    #return render(request, 'clinic/services.html', {'servicesnoimages': servicesnoimages})
-
 def rendezvous(request):
-    # Récupérez tous les rendez-vous depuis la base de données et triez par date
     liste_rendezvous = RendezVous.objects.order_by('date')
 
-    # Filtrez les rendez-vous expirés (antérieurs à la date actuelle)
     current_date = datetime.today().date()
     liste_rendezvous = [rdv for rdv in liste_rendezvous if rdv.date >= current_date]
 
@@ -42,7 +43,6 @@ def contact(request):
 def adminlogin(request):
     return render(request, 'clinic/adminlogin.html')
 
-# views.py
 
 
 def prendre_rendezvous(request):
@@ -76,27 +76,15 @@ def prendre_rendezvous(request):
 
 
 
-
-from django.shortcuts import redirect
-
 def change_language(request, language_code):
     request.session['django_language'] = language_code
     return redirect(request.META.get('HTTP_REFERER'))
 
 
-from django.http import JsonResponse
-from .models import RendezVous
-from django.core.serializers import serialize
-
 def get_rendezvous_data(request):
     rendezvous_data = serialize('json', RendezVous.objects.all())
     return JsonResponse({'rendezvous_data': rendezvous_data})
 
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
-from .serializers import AdminSerializer
-from django.contrib.auth.models import User
 
 class AdminDataApiView(APIView):
     def get(self, request, *args, **kwargs):
@@ -123,21 +111,13 @@ class RendezVousApiViewID(APIView):
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-from rest_framework import status
-from .serializers import RendezVousSerializer
-from .models import RendezVous
-
 @api_view(['POST', 'PUT', 'DELETE'])
 def create_or_update_rendezvous(request, rendezvous_id=None):
     try:
         if request.method == 'POST':
-            # Create a new rendezvous entry
             serializer = RendezVousSerializer(rendezvous, data=request.data, partial=True)
 
         elif request.method == 'PUT':
-            # Update an existing rendezvous entry
             rendezvous = RendezVous.objects.get(id=rendezvous_id)
             serializer = RendezVousSerializer(rendezvous, data=request.data)
         elif request.method == 'DELETE':
@@ -152,12 +132,6 @@ def create_or_update_rendezvous(request, rendezvous_id=None):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     except RendezVous.DoesNotExist:
         return Response({"error": "Rendezvous not found"}, status=status.HTTP_404_NOT_FOUND)
-    
-
-from django.http import HttpResponse
-from reportlab.lib.pagesizes import letter
-from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Image, Spacer,Paragraph
-from .models import RendezVous
 
 def generate_pdf(request):
     

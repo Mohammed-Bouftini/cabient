@@ -1,12 +1,6 @@
 from django.urls import path
 from . import views
-from .views import AdminDataApiView
-from .views import RendezVousApiView
-
-from .views import RendezVousApiViewID
-
-from .views import create_or_update_rendezvous
-from .views import generate_pdf
+from .views import AdminDataApiView,RendezVousApiView,RendezVousApiViewID,create_or_update_rendezvous,generate_pdf
 
 urlpatterns = [
     path('', views.index, name='index'),

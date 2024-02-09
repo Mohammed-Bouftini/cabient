@@ -12,6 +12,7 @@ from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet
 
 
+
 @admin.register(RendezVous)
 class RendezVousAdmin(admin.ModelAdmin):
     list_display = ('nom', 'prenom','CIN', 'telephone', 'email', 'date', 'time', 'presence', 'modify_button')
@@ -130,6 +131,5 @@ class ServiceNoImageAdmin(admin.ModelAdmin):
 
     modify_button.short_description = 'Modifier'
 
-from django.http import HttpResponse
-from PIL import Image
+
 
