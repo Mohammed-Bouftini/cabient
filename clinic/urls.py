@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 from .views import AdminDataApiView,RendezVousApiView,RendezVousApiViewID,create_or_update_rendezvous,generate_pdf
+from django.urls import path
+from django.conf.urls import handler404
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -19,3 +21,4 @@ urlpatterns = [
     path('api/create_or_update_rendezvous/<int:rendezvous_id>/', views.create_or_update_rendezvous, name='create_or_update_rendezvous'),
     path('api/generate_pdf/', generate_pdf, name='generate_pdf'),
 ]
+handler404 = "clinic.views.handel404"

@@ -1,0 +1,45 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page not found (404)</title>
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .logo {
+            max-width: 150px; /* Ajustez la largeur maximale selon vos besoins */
+            margin-bottom: 35px; /* Ajoutez une marge en bas pour séparer le logo du texte */
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+            font-size: 18px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <img class="logo" src="{% static 'images/logopdf.png' %}" alt="{% trans 'Logo de la clinique' %}">
+    <h1>Page not found (404)</h1>
+    <p>Sorry, the page you are looking for might be in another castle.</p>
+    <!-- Add more content or styling as needed -->
+</body>
+</html>

@@ -11,20 +11,23 @@ body {
     background-color: #f5f5f5;
 }
 
-.container {
+/*.container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-}
+}*/
 
-header {
+/*header {
     background-color: #333;
     color: white;
     padding: 1rem 0;
     text-align: center;
     overflow: hidden; 
 }
-
+header .h1 {
+    
+    float: left;
+}
 header .logo {
     max-width: 100px;
     height: auto;
@@ -56,6 +59,59 @@ nav ul li a {
 nav ul li a:hover {
     background-color: #333;
     color: white;
+}*/
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Aligner à gauche */
+}
+
+.logo {
+    max-width: 100px;
+    height: auto;
+    display: block;
+    margin-right: 10px; /* Ajouter une marge à droite pour séparer le logo du titre */
+}
+
+h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin-top: 20px;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #555; /* Assombrir légèrement la couleur au survol */
+    color: white;
+}
+
+.centered-container {
+    display: flex;
+    align-items: center;
 }
 
 main {
@@ -134,10 +190,27 @@ hero p {
 }
 
 video {
-    max-width: 70%;
+    max-width: 100%; /* Utilisez 100% pour assurer une meilleure réactivité */
     height: auto;
-    border-radius: 4px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px; /* Une bordure arrondie légèrement plus prononcée */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Légèrement plus d'ombre */
+    transition: box-shadow 0.3s ease-in-out; /* Transition douce pour l'ombre */
+}
+
+/* Ajoutez une bordure légère au survol de la vidéo */
+video:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Ajoutez une classe pour personnaliser une vidéo spécifique si nécessaire */
+.video-custom {
+    border: 2px solid #3498db; /* Bordure bleue */
+    transition: border 0.3s ease-in-out; /* Transition douce pour la bordure */
+}
+
+/* Ajoutez une bordure colorée au survol de la vidéo personnalisée */
+.video-custom:hover {
+    border: 2px solid #2980b9; /* Bordure bleu foncé au survol */
 }
 .contact {
     max-width: 400px;

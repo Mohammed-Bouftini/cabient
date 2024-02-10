@@ -19,6 +19,8 @@ from django.core.serializers import serialize
 
 from .models import Contact
 
+def handel404(request,exception):
+    return render(request,'clinic/404.html')
 def index(request):
     return render(request, 'clinic/index.html')
 
