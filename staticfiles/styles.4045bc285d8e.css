@@ -409,19 +409,17 @@ header {
 }
 
 .menu-toggle {
-    display: none;
-    cursor: pointer;
+    display: none; /* Masquer le menu à bascule par défaut sur les grands écrans */
 }
-.menu-toggle input {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-}
+
 .menu-toggle label {
     font-size: 24px;
     cursor: pointer;
 }
 
+.nav-links {
+    display: none;
+}
 nav ul {
     list-style: none;
     display: flex;

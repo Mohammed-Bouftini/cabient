@@ -2,14 +2,13 @@
 {% load i18n %}
 
 <!DOCTYPE html>
-<html lang="{% get_current_language as language_code %}">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% trans "Cabinet de kinésithérapie & physiothérapie" %}</title>
     <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
-
 </head>
 <body>
     <header>
@@ -18,10 +17,17 @@
                 <img src="{% static 'images/logo.png' %}" alt="Logo de la clinique">
                 <h1>Cabinet PT Affous</h1>
             </div>
-           
             <div class="menu-toggle">
                 <input type="checkbox" id="menu-btn">
                 <label for="menu-btn">&#9776;</label>
+                <nav class="nav-links">
+                    <ul>
+                        <li><a href="{% url 'index' %}" >{% trans 'Accueil' %}</a></li>
+                        <li><a href="{% url 'services' %}" >{% trans 'Services' %}</a></li>
+                        <li><a href="{% url 'contact' %}">{% trans 'Contact' %}</a></li>
+                        <li><a href="{% url 'rendezvous' %}" >{% trans 'Rendez-vous' %}</a></li>
+                    </ul>
+                </nav>
             </div>
             <nav class="nav-links">
                 <ul>
@@ -69,7 +75,6 @@
     <footer>
         <div class="container">
             <p>&copy; {% trans "2024 Cabinet de kinésithérapie & physiothérapie." %}</p>
-
         </div>
     </footer>
 </body>

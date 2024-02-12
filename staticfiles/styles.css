@@ -412,7 +412,11 @@ header {
     display: none;
     cursor: pointer;
 }
-
+.menu-toggle input {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
 .menu-toggle label {
     font-size: 24px;
     cursor: pointer;
@@ -676,37 +680,32 @@ form select[name="time"] option {
 
 
 @media screen and (max-width: 768px) {
-    .nav-links {
-        display: none;
+    .logo {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        font-size: 1.5em; /* Ajuster la taille de la police du titre pour les petits écrans */
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
     }
 
     .menu-toggle {
         display: block;
+        margin-bottom: 10px;
     }
 
-    .menu-toggle input {
+    .nav-links {
         display: none;
-    }
-
-    .menu-toggle label {
-        display: block;
-    }
-
-    .nav-links.show {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background-color: #333;
-    }
-
-    .nav-links.show li {
         text-align: center;
-        margin: 0;
-        padding: 10px;
-        border-bottom: 1px solid #555;
+    }
+
+    .menu-toggle input:checked + label + .nav-links {
+        display: block;
     }
     
     main {

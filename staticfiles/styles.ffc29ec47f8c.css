@@ -408,18 +408,19 @@ header {
     margin-right: 10px;
 }
 
-.menu-toggle {
-    display: none;
-    cursor: pointer;
-}
 .menu-toggle input {
     position: absolute;
     top: -9999px;
     left: -9999px;
 }
+
 .menu-toggle label {
     font-size: 24px;
     cursor: pointer;
+}
+
+.nav-links {
+    display: none;
 }
 
 nav ul {
@@ -678,8 +679,7 @@ form select[name="time"] option {
     color: #fff;
 }
 
-
-@media screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
     .logo {
         text-align: center;
         margin-bottom: 10px;
@@ -695,33 +695,29 @@ form select[name="time"] option {
     }
 
     .menu-toggle {
-        display: block;
-        margin-bottom: 10px;
+        position: relative; /* Assurez-vous que la position est relative pour positionner les éléments enfants correctement */
+    }
+
+    .menu-toggle label {
+        display: block; /* Assurez-vous que le label est affiché comme un bloc pour positionner correctement le texte */
     }
 
     .nav-links {
-        display: none;
+        display: block;
+    }
+
+    .nav-links ul {
+        list-style: none;
+        padding: 0;
         text-align: center;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
     }
 
     .menu-toggle input:checked + label + .nav-links {
         display: block;
-    }
-    
-    main {
-        padding: 1rem; 
-    }
-
-    section {
-        margin-bottom: 1rem; 
-    }
-
-    h2 {
-        font-size: 1.5rem; 
-    }
-
-    ul {
-        margin-left: 1rem; 
     }
 
     form {

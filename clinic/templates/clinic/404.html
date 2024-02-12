@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page not found (404)</title>
+    <title>{% trans "Page not found (404)"%}"</title>
     <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
     <style>
         body {
@@ -38,7 +38,7 @@
 </head>
 <body>
     <img class="logo" src="{% static 'images/logopdf.png' %}" alt="{% trans 'Logo de la clinique' %}">
-    <h1>{% trans "Page introuvable (404)"%}"</h1>
-    <p>{% trans "Désolé, la page que vous recherchez se trouve peut-être dans un autre château."%}"</p>
+    <h1>{% trans "Page introuvable (404) "%}</h1>
+    <p>{% trans "Désolé, la page que vous recherchez se trouve peut-être dans un autre château. "%}</p>
 </body>
 </html>

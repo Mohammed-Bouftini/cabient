@@ -148,9 +148,9 @@ msgstr "للحجز"
 
 #: .\clinic\templates\clinic\contact.html:147
 #, fuzzy
-#| msgid " 2023 Cabinet de kinésithérapie & physiothérapie."
+#| msgid " 2024 Cabinet de kinésithérapie & physiothérapie."
 msgid " 2024 Cabinet de kinésithérapie & physiothérapie."
-msgstr ".2023 عيادة الترويض الطبي و العلاج الفزيائي"
+msgstr ".2024 عيادة الترويض الطبي و العلاج الفزيائي"
 
 #: .\clinic\templates\clinic\index.html:9
 #: .\clinic\templates\clinic\index.html:60
@@ -171,9 +171,9 @@ msgstr "متصفحك لا يدعم علامة الفيديو."
 #: .\clinic\templates\clinic\rendezvous.html:184
 #: .\clinic\templates\clinic\services.html:80
 #, fuzzy
-#| msgid "2023 Cabinet de kinésithérapie & physiothérapie."
+#| msgid "2024 Cabinet de kinésithérapie & physiothérapie."
 msgid "2024 Cabinet de kinésithérapie & physiothérapie."
-msgstr ".2023 عيادة الترويض الطبي و العلاج الفزيائي"
+msgstr ".2024 عيادة الترويض الطبي و العلاج الفزيائي"
 
 #: .\clinic\templates\clinic\rendezvous.html:8
 msgid "Prendre Rendez-vous - Cabinet de kinésithérapie & physiothérapie"
@@ -193,7 +193,7 @@ msgstr "الاسم الأول :"
 
 #: .\clinic\templates\clinic\rendezvous.html:79
 msgid "CIN :"
-msgstr ""
+msgstr "رقم البطاقة الوطنية"
 
 #: .\clinic\templates\clinic\rendezvous.html:82
 msgid "Téléphone:"
@@ -290,19 +290,20 @@ msgstr ""
 
 #: .\myenv\Lib\site-packages\django\core\validators.py:176
 msgid "Enter a valid email address."
-msgstr ""
+msgstr "أدخل عنوان بريد إلكتروني صالح"
 
 #. Translators: "letters" means latin letters: a-z and A-Z.
 #: .\myenv\Lib\site-packages\django\core\validators.py:259
 msgid ""
 "Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
-msgstr ""
+msgstr "أدخل “رمزًا ثابتً“ صالحًا يتكون من أحرف أو أرقام أو شرطات سفلية أو واصلات."
 
 #: .\myenv\Lib\site-packages\django\core\validators.py:267
 msgid ""
 "Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
 "hyphens."
 msgstr ""
+"أدخل “رمزًا ثابتًا“ صالحًا يتكون من أحرف أو أرقام أو شرطات سفلية أو واصلات."
 
 #: .\myenv\Lib\site-packages\django\core\validators.py:279
 #: .\myenv\Lib\site-packages\django\core\validators.py:306
@@ -384,7 +385,7 @@ msgstr[5] ""
 #: .\myenv\Lib\site-packages\django\forms\fields.py:355
 #: .\myenv\Lib\site-packages\django\forms\fields.py:394
 msgid "Enter a number."
-msgstr ""
+msgstr "أدخل رقما"
 
 #: .\myenv\Lib\site-packages\django\core\validators.py:482
 #, python-format
@@ -435,7 +436,7 @@ msgstr ""
 #: .\myenv\Lib\site-packages\django\db\models\base.py:1473
 #: .\myenv\Lib\site-packages\django\forms\models.py:906
 msgid "and"
-msgstr ""
+msgstr "و"
 
 #: .\myenv\Lib\site-packages\django\db\models\base.py:1475
 #, python-format

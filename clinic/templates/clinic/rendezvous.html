@@ -23,6 +23,14 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
             <div class="menu-toggle">
                 <input type="checkbox" id="menu-btn">
                 <label for="menu-btn">&#9776;</label>
+                <nav class="nav-links">
+                    <ul>
+                        <li><a href="{% url 'index' %}" >{% trans 'Accueil' %}</a></li>
+                        <li><a href="{% url 'services' %}" >{% trans 'Services' %}</a></li>
+                        <li><a href="{% url 'contact' %}">{% trans 'Contact' %}</a></li>
+                        <li><a href="{% url 'rendezvous' %}" >{% trans 'Rendez-vous' %}</a></li>
+                    </ul>
+                </nav>
             </div>
             <nav class="nav-links">
                 <ul>

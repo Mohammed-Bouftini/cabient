@@ -71,8 +71,9 @@ msgstr "Page introuvable (404)"
 msgid ""
 "Désolé, la page que vous recherchez se trouve peut-être dans un autre "
 "château."
-msgstr "Désolé, la page que vous recherchez se trouve peut-être dans un autre château."
-
+msgstr ""
+"Désolé, la page que vous recherchez se trouve peut-être dans un autre "
+"château."
 #: .\clinic\templates\clinic\contact.html:9
 msgid "Contactez-nous - Ma Clinique de "
 msgstr "Contactez-nous - Ma Clinique de"
