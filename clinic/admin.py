@@ -14,7 +14,7 @@ from reportlab.lib.styles import getSampleStyleSheet
 
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ['name', 'phone', 'email', 'subject', 'created_at']
+    list_display = ['name', 'phone', 'email', 'subject','message', 'created_at']
     search_fields = ['name', 'email', 'phone', 'subject', 'message']
     list_filter = ['created_at']
 

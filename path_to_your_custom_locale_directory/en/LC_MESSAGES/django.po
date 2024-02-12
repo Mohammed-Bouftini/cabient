@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 00:07+0100\n"
+"POT-Creation-Date: 2024-02-12 22:50+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,7 +34,7 @@ msgstr "Phone:"
 msgid "Email"
 msgstr "Email:"
 
-#: .\clinic\models.py:11 .\clinic\templates\clinic\contact.html:97
+#: .\clinic\models.py:11 .\clinic\templates\clinic\contact.html:105
 msgid "Sujet"
 msgstr "Subject"
 
@@ -46,10 +46,14 @@ msgstr "Message"
 msgid "Date de création"
 msgstr "Creation date"
 
-#: .\clinic\models.py:19 .\clinic\templates\clinic\contact.html:34
-#: .\clinic\templates\clinic\index.html:30
-#: .\clinic\templates\clinic\rendezvous.html:31
-#: .\clinic\templates\clinic\services.html:29
+#: .\clinic\models.py:19 .\clinic\templates\clinic\contact.html:33
+#: .\clinic\templates\clinic\contact.html:42
+#: .\clinic\templates\clinic\index.html:27
+#: .\clinic\templates\clinic\index.html:36
+#: .\clinic\templates\clinic\rendezvous.html:30
+#: .\clinic\templates\clinic\rendezvous.html:39
+#: .\clinic\templates\clinic\services.html:28
+#: .\clinic\templates\clinic\services.html:37
 msgid "Contact"
 msgstr "Contact"
 
@@ -59,52 +63,76 @@ msgstr "Contact"
 msgid "Contacts"
 msgstr "Contact"
 
+#: .\clinic\templates\clinic\404.html:8
+#, fuzzy
+#| msgid "Page introuvable (404)"
+msgid "Page not found (404)"
+msgstr "Page not found (404)"
+
 #: .\clinic\templates\clinic\404.html:40
 msgid "Logo de la clinique"
 msgstr "Clinic Logo"
 
 #: .\clinic\templates\clinic\404.html:41
-msgid "Page introuvable (404)"
+#, fuzzy
+#| msgid "Page introuvable (404)"
+msgid "Page introuvable (404) "
 msgstr "Page not found (404)"
 
 #: .\clinic\templates\clinic\404.html:42
+#, fuzzy
+#| msgid ""
+#| "Désolé, la page que vous recherchez se trouve peut-être dans un autre "
+#| "château."
 msgid ""
 "Désolé, la page que vous recherchez se trouve peut-être dans un autre "
-"château."
+"château. "
 msgstr "Sorry, the page you are looking for might be in another castle"
 
 #: .\clinic\templates\clinic\contact.html:9
 msgid "Contactez-nous - Ma Clinique de "
 msgstr "Contact Us - My Physiotherapy Clinic"
 
-#: .\clinic\templates\clinic\contact.html:32
-#: .\clinic\templates\clinic\index.html:28
-#: .\clinic\templates\clinic\rendezvous.html:29
-#: .\clinic\templates\clinic\services.html:27
+#: .\clinic\templates\clinic\contact.html:31
+#: .\clinic\templates\clinic\contact.html:40
+#: .\clinic\templates\clinic\index.html:25
+#: .\clinic\templates\clinic\index.html:34
+#: .\clinic\templates\clinic\rendezvous.html:28
+#: .\clinic\templates\clinic\rendezvous.html:37
+#: .\clinic\templates\clinic\services.html:26
+#: .\clinic\templates\clinic\services.html:35
 msgid "Accueil"
 msgstr "Home"
 
-#: .\clinic\templates\clinic\contact.html:33
-#: .\clinic\templates\clinic\index.html:29
-#: .\clinic\templates\clinic\rendezvous.html:30
-#: .\clinic\templates\clinic\services.html:28
+#: .\clinic\templates\clinic\contact.html:32
+#: .\clinic\templates\clinic\contact.html:41
+#: .\clinic\templates\clinic\index.html:26
+#: .\clinic\templates\clinic\index.html:35
+#: .\clinic\templates\clinic\rendezvous.html:29
+#: .\clinic\templates\clinic\rendezvous.html:38
+#: .\clinic\templates\clinic\services.html:27
+#: .\clinic\templates\clinic\services.html:36
 msgid "Services"
 msgstr "Services"
 
-#: .\clinic\templates\clinic\contact.html:35
-#: .\clinic\templates\clinic\index.html:31
-#: .\clinic\templates\clinic\rendezvous.html:32
-#: .\clinic\templates\clinic\services.html:30
+#: .\clinic\templates\clinic\contact.html:34
+#: .\clinic\templates\clinic\contact.html:43
+#: .\clinic\templates\clinic\index.html:28
+#: .\clinic\templates\clinic\index.html:37
+#: .\clinic\templates\clinic\rendezvous.html:31
+#: .\clinic\templates\clinic\rendezvous.html:40
+#: .\clinic\templates\clinic\services.html:29
+#: .\clinic\templates\clinic\services.html:38
 msgid "Rendez-vous"
 msgstr "Appointments"
 
-#: .\clinic\templates\clinic\contact.html:63
-#: .\clinic\templates\clinic\contact.html:111
+#: .\clinic\templates\clinic\contact.html:71
+#: .\clinic\templates\clinic\contact.html:119
 msgid "Contactez-nous"
 msgstr "Contact Us"
 
-#: .\clinic\templates\clinic\contact.html:64
-#: .\clinic\templates\clinic\contact.html:112
+#: .\clinic\templates\clinic\contact.html:72
+#: .\clinic\templates\clinic\contact.html:120
 msgid ""
 "Pour prendre rendez-vous ou pour toute question, n'hésitez pas à nous "
 "contacter :"
@@ -112,53 +140,53 @@ msgstr ""
 "To schedule an appointment or for any inquiries, please feel free to contact "
 "us:"
 
-#: .\clinic\templates\clinic\contact.html:66
-#: .\clinic\templates\clinic\contact.html:114
-#: .\clinic\templates\clinic\rendezvous.html:85
+#: .\clinic\templates\clinic\contact.html:74
+#: .\clinic\templates\clinic\contact.html:122
+#: .\clinic\templates\clinic\rendezvous.html:93
 msgid "Email :"
 msgstr "Email:"
 
-#: .\clinic\templates\clinic\contact.html:68
-#: .\clinic\templates\clinic\contact.html:116
+#: .\clinic\templates\clinic\contact.html:76
+#: .\clinic\templates\clinic\contact.html:124
 msgid "Téléphone :"
 msgstr "Phone:"
 
-#: .\clinic\templates\clinic\contact.html:88
+#: .\clinic\templates\clinic\contact.html:96
 msgid "Vos noms et prénoms (obligatoire)"
 msgstr "Your first and last names (required)"
 
-#: .\clinic\templates\clinic\contact.html:91
+#: .\clinic\templates\clinic\contact.html:99
 msgid "Votre téléphone (obligatoire)"
 msgstr "Your phone (required)"
 
-#: .\clinic\templates\clinic\contact.html:92
+#: .\clinic\templates\clinic\contact.html:100
 msgid "Veuillez entrer un numéro de téléphone à 10 chiffres"
 msgstr "Please enter a 10-digit phone number"
 
-#: .\clinic\templates\clinic\contact.html:94
+#: .\clinic\templates\clinic\contact.html:102
 msgid "Votre email (obligatoire)"
 msgstr "Your email (required)"
 
-#: .\clinic\templates\clinic\contact.html:100
+#: .\clinic\templates\clinic\contact.html:108
 msgid "Votre message"
 msgstr "Your message"
 
-#: .\clinic\templates\clinic\contact.html:103
-msgid "Réserver"
-msgstr "To book"
+#: .\clinic\templates\clinic\contact.html:111
+msgid "Envoyer"
+msgstr "Send"
 
-#: .\clinic\templates\clinic\contact.html:147
+#: .\clinic\templates\clinic\contact.html:155
 #, fuzzy
-#| msgid " 2023 Cabinet de kinésithérapie & physiothérapie."
+#| msgid " 2024 Cabinet de kinésithérapie & physiothérapie."
 msgid " 2024 Cabinet de kinésithérapie & physiothérapie."
 msgstr "2023 Physiotherapy & Rehabilitation Center."
 
 #: .\clinic\templates\clinic\index.html:9
-#: .\clinic\templates\clinic\index.html:60
+#: .\clinic\templates\clinic\index.html:66
 msgid "Cabinet de kinésithérapie & physiothérapie"
 msgstr "Physiotherapy & Rehabilitation Center"
 
-#: .\clinic\templates\clinic\index.html:61
+#: .\clinic\templates\clinic\index.html:67
 msgid ""
 "Nous sommes dédiés à améliorer votre santé et votre bien-être grâce à nos "
 "services de qualité."
@@ -166,13 +194,13 @@ msgstr ""
 "We are dedicated to improving your health and well-being through our quality "
 "services."
 
-#: .\clinic\templates\clinic\index.html:64
+#: .\clinic\templates\clinic\index.html:70
 msgid "Votre navigateur ne prend pas en charge la balise vidéo."
 msgstr "Your browser does not support the video tag."
 
-#: .\clinic\templates\clinic\index.html:71
-#: .\clinic\templates\clinic\rendezvous.html:184
-#: .\clinic\templates\clinic\services.html:80
+#: .\clinic\templates\clinic\index.html:77
+#: .\clinic\templates\clinic\rendezvous.html:192
+#: .\clinic\templates\clinic\services.html:88
 #, fuzzy
 #| msgid "2023 Cabinet de kinésithérapie & physiothérapie."
 msgid "2024 Cabinet de kinésithérapie & physiothérapie."
@@ -182,55 +210,59 @@ msgstr "2023 Physiotherapy & Rehabilitation Center."
 msgid "Prendre Rendez-vous - Cabinet de kinésithérapie & physiothérapie"
 msgstr "Schedule an Appointment - Physiotherapy & Rehabilitation Center"
 
-#: .\clinic\templates\clinic\rendezvous.html:61
+#: .\clinic\templates\clinic\rendezvous.html:69
 msgid "Prise de Rendez-vous"
 msgstr "Appointment Booking"
 
-#: .\clinic\templates\clinic\rendezvous.html:73
+#: .\clinic\templates\clinic\rendezvous.html:81
 msgid "Nom :"
 msgstr "Name :"
 
-#: .\clinic\templates\clinic\rendezvous.html:76
+#: .\clinic\templates\clinic\rendezvous.html:84
 msgid "Prenom :"
 msgstr "First Name:"
 
-#: .\clinic\templates\clinic\rendezvous.html:79
+#: .\clinic\templates\clinic\rendezvous.html:87
 msgid "CIN :"
 msgstr ""
 
-#: .\clinic\templates\clinic\rendezvous.html:82
+#: .\clinic\templates\clinic\rendezvous.html:90
 msgid "Téléphone:"
 msgstr "Phone:"
 
-#: .\clinic\templates\clinic\rendezvous.html:88
+#: .\clinic\templates\clinic\rendezvous.html:96
 msgid "Date :"
 msgstr "Date:"
 
-#: .\clinic\templates\clinic\rendezvous.html:91
+#: .\clinic\templates\clinic\rendezvous.html:99
 msgid "Heure de début :"
 msgstr "Start Time:"
 
-#: .\clinic\templates\clinic\rendezvous.html:142
+#: .\clinic\templates\clinic\rendezvous.html:104
+msgid "Réserver"
+msgstr "To book"
+
+#: .\clinic\templates\clinic\rendezvous.html:150
 msgid "Liste des Rendez-vous"
 msgstr "Appointment List"
 
-#: .\clinic\templates\clinic\rendezvous.html:152
+#: .\clinic\templates\clinic\rendezvous.html:160
 msgid "Nom"
 msgstr "Name"
 
-#: .\clinic\templates\clinic\rendezvous.html:153
+#: .\clinic\templates\clinic\rendezvous.html:161
 msgid "Prenom"
 msgstr "First Name"
 
-#: .\clinic\templates\clinic\rendezvous.html:154
+#: .\clinic\templates\clinic\rendezvous.html:162
 msgid "Date"
 msgstr "Date"
 
-#: .\clinic\templates\clinic\rendezvous.html:155
+#: .\clinic\templates\clinic\rendezvous.html:163
 msgid "Heure"
 msgstr "Time"
 
-#: .\clinic\templates\clinic\rendezvous.html:171
+#: .\clinic\templates\clinic\rendezvous.html:179
 msgid "Il n'y a pas de rendez-vous pour le moment."
 msgstr "There are no appointments at the moment."
 
@@ -238,7 +270,7 @@ msgstr "There are no appointments at the moment."
 msgid "Nos Services - Ma Clinique de Physiothérapie"
 msgstr "Our Services - Physiotherapy Clinic"
 
-#: .\clinic\templates\clinic\services.html:58
+#: .\clinic\templates\clinic\services.html:66
 #, fuzzy
 #| msgid "Services"
 msgid "Nos Services"
