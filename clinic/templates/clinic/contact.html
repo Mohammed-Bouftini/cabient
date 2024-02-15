@@ -76,10 +76,10 @@
         <address>
             <i class="fas fa-envelope"></i> {% trans "Email :" %}
             <a href="mailto:ouadie.affous.oa@gmail.com">ouadie.affous.oa@gmail.com</a><br>
-            <i class="fas fa-phone"></i> {% trans "Téléphone :" %}
+            <i  class="fas fa-phone"></i> {% trans "Téléphone :" %}
             <a href="tel:+212690153603">+212 6 90 15 36 03</a>
         </address>
-        <div class="social-icons">
+        <div style="margin-top: 15px;" class="social-icons">
             <a href="https://www.facebook.com/profile.php?id=61555946494139&mibextid=2JQ9oc" target="_blank" class="icon-link"><img src="{% static 'images/facebook.png' %}" alt="Facebook" class="social-icon"></a>
             <a href="https://www.instagram.com/pt.ouadie.affouss?igsh=MTF4YjJ6MTVvYmJxdg==" target="_blank" class="icon-link"><img src="{% static 'images/instagram.png' %}" alt="Instagram" class="social-icon"></a>
             <a href="https://wa.me/212633571960" target="_blank" class="icon-link"><img src="{% static 'images/whatsapp.png' %}" alt="WhatsApp" class="social-icon"></a>
@@ -174,7 +174,20 @@
             <p>&copy; {% trans "2024 Cabinet de kinésithérapie & physiothérapie." %}</p>
         </div>
     </footer>
-
+    <script>
+        mybutton = document.getElementById("myBtn");
+        
+        
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+        </script>
 
 </body>
 </html>
