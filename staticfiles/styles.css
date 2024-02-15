@@ -397,8 +397,8 @@ form select[name="time"] option {
   }
   
 #myBtn img {
-    width: 40px; /* Adjust the width of the image */
-    height: 40px; /* Adjust the height of the image */
+    width: 45px; /* Adjust the width of the image */
+    height: 45px; /* Adjust the height of the image */
 }
 body {
     margin: 0;
