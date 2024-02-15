@@ -374,8 +374,32 @@ form select[name="time"] option {
     height: 30px; /* Ajustez la hauteur selon vos besoins */
     margin-right: 15px;
 }
+*::-webkit-scrollbar{
+    width: 11px;
+}
+*::-webkit-scrollbar-thumb{
+    background-color: #333;
+}
 
-
+#myBtn {
+    background-color: transparent;
+    position: fixed;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    outline: none;
+  }
+  
+#myBtn img {
+    width: 40px; /* Adjust the width of the image */
+    height: 40px; /* Adjust the height of the image */
+}
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
@@ -665,7 +689,35 @@ form select[name="time"] option {
     margin-right: 5px; 
 }
 */
- 
+
+footer {
+    background-color: #333; /* Choose a background color that fits your design */
+    color: #fff; /* Set text color to white or a contrasting color */
+    padding: 20px 0; /* Add padding to provide some space around the content */
+}
+
+.container1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.social-links {
+    display: flex;
+    gap: 10px; /* Adjust the gap between social icons */
+}
+
+.social-icon {
+    width: 30px; /* Set a suitable width for your social icons */
+    height: 30px; /* Set a suitable height for your social icons */
+}
+
+p {
+    margin: 0; /* Remove default margin for better spacing */
+}
 .thumbnail {
     width: 500px; 
     height: 450px; 
@@ -677,6 +729,89 @@ form select[name="time"] option {
     background-color: #555;
     color: #fff;
 }
+/* Services______________*/
+.services .icon-box {
+    text-align: center;
+    border: 1px solid #d5e1ed;
+    padding: 80px 20px;
+    transition: all ease-in-out 0.3s;
+  }
+  
+  .services .icon-box .icon {
+    margin: 0 auto;
+    width: 64px;
+    height: 64px;
+    background: #1977cc;
+    border-radius: 5px;
+    transition: all 0.3s ease-out 0s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transform-style: preserve-3d;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .services .icon-box .icon i {
+    color: #fff;
+    font-size: 28px;
+    transition: ease-in-out 0.3s;
+  }
+  
+  .services .icon-box .icon::before {
+    position: absolute;
+    content: "";
+    left: -8px;
+    top: -8px;
+    height: 100%;
+    width: 100%;
+    background: rgba(25, 119, 204, 0.2);
+    border-radius: 5px;
+    transition: all 0.3s ease-out 0s;
+    transform: translateZ(-1px);
+    z-index: -1;
+  }
+  
+  .services .icon-box h4 {
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 24px;
+  }
+  
+  .services .icon-box h4 a {
+    color: #2c4964;
+  }
+  
+  .services .icon-box p {
+    line-height: 24px;
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+  
+  .services .icon-box:hover {
+    background: #1977cc;
+    border-color: #1977cc;
+  }
+  
+  .services .icon-box:hover .icon {
+    background: #fff;
+  }
+  
+  .services .icon-box:hover .icon i {
+    color: #1977cc;
+  }
+  
+  .services .icon-box:hover .icon::before {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  .services .icon-box:hover h4 a,
+  .services .icon-box:hover p {
+    color: #fff;
+  }
+  
+/*______________________*/
 
 
 @media screen and (max-width: 768px) {

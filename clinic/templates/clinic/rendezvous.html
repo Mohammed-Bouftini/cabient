@@ -11,6 +11,8 @@
 crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <script src="{% static 'script.js' %}"></script>
+
 </head>
 <body>
     <header>
@@ -104,45 +106,6 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
         
             <input type="submit" value="{% trans 'Réserver' %}">
         
-            <script>
-                document.getElementById('date').addEventListener('change', function () {
-                    updateAvailableTimeSlots();
-                });
-        
-                updateAvailableTimeSlots();
-        
-                function updateAvailableTimeSlots() {
-                    var selectedDate = new Date(document.getElementById('date').value);
-                    var dayOfWeek = selectedDate.getDay();
-        
-                    var timeSelect = document.getElementById('time');
-                    timeSelect.innerHTML = ''; 
-        
-                    if (dayOfWeek >= 1 && dayOfWeek <= 5) { 
-                        addTimeOption('09:00');
-                        addTimeOption('10:00');
-                        addTimeOption('11:00');
-                        addTimeOption('12:00');
-                        addTimeOption('15:00');
-                        addTimeOption('16:00');
-                        addTimeOption('17:00');
-                    } else if (dayOfWeek === 6) { 
-                        addTimeOption('09:00');
-                        addTimeOption('10:00');
-                        addTimeOption('11:00');
-                        addTimeOption('12:00');
-                    } else {
-                        // Handle other days (Sunday) if needed
-                    }
-                }
-        
-                function addTimeOption(time) {
-                    var option = document.createElement('option');
-                    option.value = time;
-                    option.text = time;
-                    document.getElementById('time').add(option);
-                }
-            </script>
         </form>
 
      
@@ -186,13 +149,83 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
 </main>
 {% endblock %}
 
+<button onclick="topFunction()" id="myBtn" title="Go to top">
+    <img src="{% static 'images/fleche.png' %}" alt="Up Arrow">
+  </button>
     
-    
-    <footer>
-        <div class="container">
-            <p>&copy;{% trans "2024 Cabinet de kinésithérapie & physiothérapie." %}</p>
-
+<footer>
+    <div class="container1">
+        <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=61555946494139&mibextid=2JQ9oc" target="_blank" class="icon-link">
+                <img src="{% static 'images/facebook.png' %}" alt="Facebook" class="social-icon">
+            </a>
+            <a href="https://www.instagram.com/pt.ouadie.affouss?igsh=MTF4YjJ6MTVvYmJxdg==" target="_blank" class="icon-link">
+                <img src="{% static 'images/instagram.png' %}" alt="Instagram" class="social-icon">
+            </a>
+            <a href="https://wa.me/212633571960" target="_blank" class="icon-link">
+                <img src="{% static 'images/whatsapp.png' %}" alt="WhatsApp" class="social-icon">
+            </a>
         </div>
-    </footer>
+        <p>&copy; {% trans "2024 Cabinet de kinésithérapie & physiothérapie." %}</p>
+    </div>
+</footer>
+<script>
+mybutton = document.getElementById("myBtn");
+
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+    }
+}
+
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+
+
+document.getElementById('date').addEventListener('change', function () {
+    updateAvailableTimeSlots();
+});
+
+updateAvailableTimeSlots();
+
+function updateAvailableTimeSlots() {
+    var selectedDate = new Date(document.getElementById('date').value);
+    var dayOfWeek = selectedDate.getDay();
+
+    var timeSelect = document.getElementById('time');
+    timeSelect.innerHTML = ''; 
+
+    if (dayOfWeek >= 1 && dayOfWeek <= 5) { 
+        addTimeOption('09:00');
+        addTimeOption('10:00');
+        addTimeOption('11:00');
+        addTimeOption('12:00');
+        addTimeOption('15:00');
+        addTimeOption('16:00');
+        addTimeOption('17:00');
+    } else if (dayOfWeek === 6) { 
+        addTimeOption('09:00');
+        addTimeOption('10:00');
+        addTimeOption('11:00');
+        addTimeOption('12:00');
+    } else {
+        // Handle other days (Sunday) if needed
+    }
+}
+
+function addTimeOption(time) {
+    var option = document.createElement('option');
+    option.value = time;
+    option.text = time;
+    document.getElementById('time').add(option);
+}
+</script>
 </body>
 </html>

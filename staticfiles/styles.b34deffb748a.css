@@ -1,0 +1,799 @@
+/*
+body, h1, h2, h3, p, ul, li, form, input, label, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background-color: #0a2b19;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+    overflow: hidden; 
+}
+
+header .logo {
+    max-width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    float: left;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #333;
+    color: white;
+}
+
+main {
+    padding: 2rem;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="date"] {
+    width: 100%;
+    padding: 0.3rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+form input[type="submit"] {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #555;
+}
+
+.hero {
+    text-align: center;
+    padding: 4rem 0;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #666;
+}
+
+video {
+    max-width: 70%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+.contact {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  input,
+  textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+  }
+  
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+.centered-section {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.centered-section h2 {
+    margin-bottom: 20px;
+}
+
+.centered-section img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.centered-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.centered-section li {
+    margin-bottom: 10px;
+}
+
+.btn-warning {
+    color: white;
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.success-message {
+    color: green;
+}
+
+.appointment-section {
+    text-align: center; 
+    margin-top: 20px;
+}
+
+.appointment-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin: 0 auto; 
+}
+
+.appointment-table th,
+.appointment-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+
+.appointment-table th {
+    background-color: #f5f5f5;
+}
+
+.appointment-row:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+form select[name="time"] {
+    width: 100%;
+    padding: 0.3rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    appearance: none;
+    background-color: white;
+    color: #333;
+}
+
+form select[name="time"] option {
+    background-color: white;
+    color: #333;
+}
+
+.centered-container {
+    text-align: center;
+    margin: 20px;
+}
+
+.language-selector-container {
+    margin: 10px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: inline-block; 
+}
+
+
+.custom-select {
+    width: 150px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: transparent; 
+    padding: 5px; 
+}
+
+
+.custom-select option {
+    background-color: #f5f5f5; 
+    color: #333; 
+    padding: 5px; 
+}
+
+
+.custom-select option img {
+    vertical-align: middle; 
+    margin-right: 5px; 
+}
+
+ 
+
+  .thumbnail {
+    width: 500px; 
+    height: 450px; 
+}
+
+
+
+@media screen and (max-width: 768px) {
+    body, h1, h2, h3, p, ul, li, form, input, label, video {
+        font-size: 16px; 
+    }
+
+    .container {
+        max-width: 100%; 
+        padding: 0 10px;
+    }
+
+    header {
+        padding: 0.5rem 0; 
+    }
+
+    header .logo {
+        max-width: 80px;
+    }
+
+    nav ul {
+        margin-top: 8px; 
+    }
+
+    nav ul li {
+        margin-right: 8px; 
+    }
+
+    nav ul li a {
+        padding: 5px; 
+    }
+
+    main {
+        padding: 1rem; 
+    }
+
+    section {
+        margin-bottom: 1rem; 
+    }
+
+    h2 {
+        font-size: 1.5rem; 
+    }
+
+    ul {
+        margin-left: 1rem; 
+    }
+
+    form {
+        max-width: 100%; 
+        padding: 0.5rem; 
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="date"] {
+        width: 100%; 
+    }
+
+    form input[type="submit"] {
+        padding: 0.3rem 0.7rem; 
+    }
+    img {
+        max-width: 100%; 
+        height: auto; 
+    }
+    
+}
+*/
+.social-icons {
+    display: flex;
+    align-items: center;
+}
+
+.social-icon {
+    width: 30px; /* Ajustez la largeur selon vos besoins */
+    height: 30px; /* Ajustez la hauteur selon vos besoins */
+    margin-right: 15px;
+}
+*::-webkit-scrollbar{
+    width: 11px;
+}
+*::-webkit-scrollbar-thumb{
+    background-color: #333;
+}
+.marg1{
+    margin-top: 16px;
+}
+#myBtn {
+    background-color: transparent;
+    position: fixed;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    outline: none;
+  }
+  
+#myBtn img {
+    width: 40px; /* Adjust the width of the image */
+    height: 40px; /* Adjust the height of the image */
+}
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px; /* Ajustez la taille de votre logo selon vos besoins */
+    margin-right: 10px;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+.menu-toggle input {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+.menu-toggle label {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+main {
+    padding: 2rem;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="date"] {
+    width: 100%;
+    padding: 0.3rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+form input[type="submit"] {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #555;
+}
+
+.hero {
+    text-align: center;
+    padding: 4rem 0;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #666;
+}
+
+video {
+    max-width: 70%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+.contact {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  input,
+  textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+  }
+  
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+.centered-section {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.centered-section h2 {
+    margin-bottom: 20px;
+}
+
+.centered-section img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.centered-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.centered-section li {
+    margin-bottom: 10px;
+}
+
+.btn-warning {
+    color: white;
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.success-message {
+    color: green;
+}
+
+.appointment-section {
+    text-align: center; 
+    margin-top: 20px;
+}
+
+.appointment-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin: 0 auto; 
+}
+
+.appointment-table th,
+.appointment-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+
+.appointment-table th {
+    background-color: #f5f5f5;
+}
+
+.appointment-row:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+form select[name="time"] {
+    width: 100%;
+    padding: 0.3rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    appearance: none;
+    background-color: white;
+    color: #333;
+}
+
+form select[name="time"] option {
+    background-color: white;
+    color: #333;
+}
+/*
+.centered-container {
+    text-align: center;
+    margin: 20px;
+}
+
+.language-selector-container {
+    margin: 10px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: inline-block; 
+}
+
+
+.custom-select {
+    width: 150px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: transparent; 
+    padding: 5px; 
+}
+
+
+.custom-select option {
+    background-color: #f5f5f5; 
+    color: #333; 
+    padding: 5px; 
+}
+
+
+.custom-select option img {
+    vertical-align: middle; 
+    margin-right: 5px; 
+}
+*/
+
+footer {
+    background-color: #333; /* Choose a background color that fits your design */
+    color: #fff; /* Set text color to white or a contrasting color */
+    padding: 20px 0; /* Add padding to provide some space around the content */
+}
+
+.container1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.social-links {
+    display: flex;
+    gap: 10px; /* Adjust the gap between social icons */
+}
+
+.social-icon {
+    width: 30px; /* Set a suitable width for your social icons */
+    height: 30px; /* Set a suitable height for your social icons */
+}
+
+p {
+    margin: 0; /* Remove default margin for better spacing */
+}*/
+.thumbnail {
+    width: 500px; 
+    height: 450px; 
+}
+
+.language select {
+    padding: 5px;
+    border: none;
+    background-color: #555;
+    color: #fff;
+}
+
+
+@media screen and (max-width: 768px) {
+    .logo {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        font-size: 1.5em; /* Ajuster la taille de la police du titre pour les petits écrans */
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .nav-links {
+        display: none;
+        text-align: center;
+    }
+
+    .menu-toggle input:checked + label + .nav-links {
+        display: block;
+    }
+    
+    main {
+        padding: 1rem; 
+    }
+
+    section {
+        margin-bottom: 1rem; 
+    }
+
+    h2 {
+        font-size: 1.5rem; 
+    }
+
+    ul {
+        margin-left: 1rem; 
+    }
+
+    form {
+        max-width: 100%; 
+        padding: 0.5rem; 
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="date"] {
+        width: 100%; 
+    }
+
+    form input[type="submit"] {
+        padding: 0.3rem 0.7rem; 
+    }
+    img {
+        max-width: 100%; 
+        height: auto; 
+    }
+}

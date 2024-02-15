@@ -9,6 +9,8 @@
     <title>{% trans "Cabinet de kinésithérapie & physiothérapie" %}</title>
     <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <script src="{% static 'script.js' %}"></script>
+
 </head>
 <body>
     <header>
@@ -73,10 +75,25 @@
             </div>
         </section>
     </main>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">
+        <img src="{% static 'images/fleche.png' %}" alt="Up Arrow">
+      </button>
     <footer>
-        <div class="container">
+        <div class="container1">
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=61555946494139&mibextid=2JQ9oc" target="_blank" class="icon-link">
+                    <img src="{% static 'images/facebook.png' %}" alt="Facebook" class="social-icon">
+                </a>
+                <a href="https://www.instagram.com/pt.ouadie.affouss?igsh=MTF4YjJ6MTVvYmJxdg==" target="_blank" class="icon-link">
+                    <img src="{% static 'images/instagram.png' %}" alt="Instagram" class="social-icon">
+                </a>
+                <a href="https://wa.me/212633571960" target="_blank" class="icon-link">
+                    <img src="{% static 'images/whatsapp.png' %}" alt="WhatsApp" class="social-icon">
+                </a>
+            </div>
             <p>&copy; {% trans "2024 Cabinet de kinésithérapie & physiothérapie." %}</p>
         </div>
     </footer>
+    
 </body>
 </html>
