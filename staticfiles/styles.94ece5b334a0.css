@@ -412,9 +412,9 @@ body {
 
 header {
     background-color: #333;
-   /* position: fixed;*/
-    color: #fff;
+    /*position: fixed;*/
     padding: 10px;
+    background: #fff;
     transition: all 0.5s;
     z-index: 997;
     padding: 15px 0;

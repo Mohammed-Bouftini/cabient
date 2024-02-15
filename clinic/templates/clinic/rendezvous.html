@@ -71,7 +71,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
     <section>
         <div class="section-title">
         <h2 >{% trans "Prise de Rendez-vous"%}</h2>
-       </div>
+    </div>
         <form id="appointment-form" method="post" action="{% url 'prendre_rendezvous' %}">
             {% csrf_token %}
             {% if messages %}

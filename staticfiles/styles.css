@@ -412,8 +412,13 @@ body {
 
 header {
     background-color: #333;
+   /* position: fixed;*/
     color: #fff;
     padding: 10px;
+    transition: all 0.5s;
+    z-index: 997;
+    padding: 15px 0;
+    top: 40px;
 }
 
 .navbar {
