@@ -44,36 +44,63 @@ class RendezVous(models.Model):
     presence = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"Rendez-vous with {self.nom} {self.prenom} on {self.telephone} {self.email} on {self.date} at {self.time}"
+       return f"Rendez-vous with {self.nom} {self.prenom} ({self.CIN}) on {self.date} at {self.time}. Contact: {self.telephone}, {self.email}. Presence: {self.presence}"
 
-class Service(models.Model):
-    name = models.CharField(max_length=100)
-    image = models.ImageField(null=True, blank=True, upload_to='service_images')
+#class Service(models.Model):
+   # name = models.CharField(max_length=100)
+    #image = models.ImageField(null=True, blank=True, upload_to='service_images')
 
-    def __str__(self):
-        return self.name
+   # def __str__(self):
+    #    return self.name
 
-    @property
-    def imageURL(self):
-        return self.image.url if self.image else ''
+   # @property
+  #  def imageURL(self):
+ #       return self.image.url if self.image else ''
 
-@receiver(pre_save, sender=Service)
-def service_pre_save(sender, instance, **kwargs):
-    if instance.image:
-        try:
-            with Image.open(instance.image.path) as img:
-                img.thumbnail((100, 100))
-                img.save(instance.image.path, format='JPEG', quality=85)
-        except FileNotFoundError:
-            pass
-        except Exception as e:
-            print(f"Error resizing image: {str(e)}")
+#@receiver(pre_save, sender=Service)
+#def service_pre_save(sender, instance, **kwargs):
+    #if instance.image:
+        #try:
+          #  with Image.open(instance.image.path) as img:
+         #       img.thumbnail((100, 100))
+        #        img.save(instance.image.path, format='JPEG', quality=85)
+       # except FileNotFoundError:
+      #      pass
+     #   except Exception as e:
+    #        print(f"Error resizing image: {str(e)}")
 
 
-class ServiceNoImage(models.Model):
-    name = models.CharField(max_length=100)
-    def __str__(self):
-           return self.name
+#class ServiceNoImage(models.Model):
+ #   name = models.CharField(max_length=100)
+  #  def __str__(self):
+   #        return self.name#class Service(models.Model):
+   # name = models.CharField(max_length=100)
+    #image = models.ImageField(null=True, blank=True, upload_to='service_images')
+
+   # def __str__(self):
+    #    return self.name
+
+   # @property
+  #  def imageURL(self):
+ #       return self.image.url if self.image else ''
+
+#@receiver(pre_save, sender=Service)
+#def service_pre_save(sender, instance, **kwargs):
+    #if instance.image:
+        #try:
+          #  with Image.open(instance.image.path) as img:
+         #       img.thumbnail((100, 100))
+        #        img.save(instance.image.path, format='JPEG', quality=85)
+       # except FileNotFoundError:
+      #      pass
+     #   except Exception as e:
+    #        print(f"Error resizing image: {str(e)}")
+
+
+#class ServiceNoImage(models.Model):
+ #   name = models.CharField(max_length=100)
+  #  def __str__(self):
+   #        return self.name
 
 
 

@@ -1,4 +1,4 @@
-from .models import Service,RendezVous ,ServiceNoImage
+from .models import RendezVous# , Service,ServiceNoImage
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import RendezVousForm
@@ -25,9 +25,9 @@ def index(request):
     return render(request, 'clinic/index.html')
 
 def services(request):
-    services = Service.objects.all()
-    servicesnoimages = ServiceNoImage.objects.all()
-    return render(request, 'clinic/services.html', {'services': services , 'servicesnoimages':servicesnoimages})
+    #services = Service.objects.all()
+    #servicesnoimages = ServiceNoImage.objects.all()
+    return render(request, 'clinic/services.html')#, {'services': services , 'servicesnoimages':servicesnoimages})
 
 def rendezvous(request):
     liste_rendezvous = RendezVous.objects.order_by('date')

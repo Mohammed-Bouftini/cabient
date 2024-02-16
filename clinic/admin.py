@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils import timezone
-from .models import RendezVous, Service, ServiceNoImage,Contact
+from .models import RendezVous,Contact# ,Service, ServiceNoImage
 from PIL import Image
 from django.urls import reverse
 from django.utils.html import format_html
@@ -98,43 +98,43 @@ class RendezVousAdmin(admin.ModelAdmin):
     telecharger_rendezvous_pdf.short_description = "Télécharger les rendez-vous en PDF"
 
 
-@admin.register(Service)
-class ServiceAdmin(admin.ModelAdmin):
-    list_display = ('name', 'display_image', 'modify_button')
-    search_fields = ('name',)
+#@admin.register(Service)
+#class ServiceAdmin(admin.ModelAdmin):
+    #list_display = ('name', 'display_image', 'modify_button')
+    #search_fields = ('name',)
 
-    def display_image(self, obj):
-        try:
-            if obj.image and hasattr(obj.image, 'path'):
-                with Image.open(obj.image.path) as img:
-                    img.thumbnail((100, 100))
-                    return format_html('<img src="{}" width="{}" height="{}" />'.format(obj.image.url, img.width, img.height))
-            else:
-                return "Aucune image"
-        except FileNotFoundError:
-            return "Image not found"
-        except Exception as e:
-            return f"Error displaying image: {str(e)}"
+    #def display_image(self, obj):
+        #try:
+            #if obj.image and hasattr(obj.image, 'path'):
+             #   with Image.open(obj.image.path) as img:
+            #        img.thumbnail((100, 100))
+           #         return format_html('<img src="{}" width="{}" height="{}" />'.format(obj.image.url, img.width, img.height))
+          #  else:
+         #       return "Aucune image"
+        #except FileNotFoundError:
+       #     return "Image not found"
+      #  except Exception as e:
+     #       return f"Error displaying image: {str(e)}"
 
-    display_image.short_description = 'Image'
+    #display_image.short_description = 'Image'
 
-    def modify_button(self, obj):
-        change_url = reverse('admin:%s_%s_change' % (obj._meta.app_label, obj._meta.model_name), args=[obj.id])
-        return format_html('<a href="{}">Modifier</a>', change_url)
+    #def modify_button(self, obj):
+      #  change_url = reverse('admin:%s_%s_change' % (obj._meta.app_label, obj._meta.model_name), args=[obj.id])
+     #   return format_html('<a href="{}">Modifier</a>', change_url)
 
-    modify_button.short_description = 'Modifier' 
+    #modify_button.short_description = 'Modifier' 
 
 
-@admin.register(ServiceNoImage)
-class ServiceNoImageAdmin(admin.ModelAdmin):
-    list_display = ('name', 'modify_button')
-    search_fields = ('name',)
+#@admin.register(ServiceNoImage)
+#class ServiceNoImageAdmin(admin.ModelAdmin):
+ #   list_display = ('name', 'modify_button')
+  #  search_fields = ('name',)
 
-    def modify_button(self, obj):
-        change_url = reverse('admin:%s_%s_change' % (obj._meta.app_label, obj._meta.model_name), args=[obj.id])
-        return format_html('<a href="{}">Modifier</a>', change_url)
+   # def modify_button(self, obj):
+    #    change_url = reverse('admin:%s_%s_change' % (obj._meta.app_label, obj._meta.model_name), args=[obj.id])
+     #   return format_html('<a href="{}">Modifier</a>', change_url)
 
-    modify_button.short_description = 'Modifier'
+    #modify_button.short_description = 'Modifier'
 
 
 

@@ -112,8 +112,9 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
      
     </section>
     <section class="appointment-section">
+        <div class="section-title">
         <h2>{% trans "Liste des Rendez-vous" %}</h2>
-    
+        </div>
         {% if liste_rendezvous %}
             {% regroup liste_rendezvous by date as grouped_dates %}
             {% for date_group in grouped_dates %}
