@@ -7,10 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% trans "Nos Services - Ma Clinique de Physiothérapie" %}</title>
     {% load static %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-..."crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
-    <script src="{% static 'script.js' %}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-..."
+crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="{% static 'script.js' %}"></script>
 
 </head>
 <body>
@@ -50,13 +55,12 @@
                 <form action="{% url 'set_language' %}" method="post" class="language-selector-container">
                     {% csrf_token %}
                     <input name="next" type="hidden" value="{{ redirect_to }}">
-                    <select name="language" onchange="this.form.submit()" class="custom-select">
+                    <select name="language" onchange="this.form.submit()">
                         {% get_current_language as LANGUAGE_CODE %}
                         {% get_available_languages as LANGUAGES %}
                         {% get_language_info_list for LANGUAGES as languages %}
                         {% for language in languages %}
                             <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected {% endif %}>
-                                <img src="{% static 'images/' %}{{ language.code }}.png" alt="{{ language.name_local }}" width="16" height="16">
                                 {{ language.name_local }} ({{ language.code }})
                             </option>
                         {% endfor %}
@@ -99,7 +103,7 @@
                   <div class="icon-box">
                     <div class="icon"><i class="fas fa-heartbeat"></i></div>
                     <h4>****</h4>
-                    <p>*********************</p>
+                    <p>*********************************************************</p>
                   </div>
                 </div>
       
@@ -107,7 +111,7 @@
                   <div class="icon-box">
                     <div class="icon"><i class="fas fa-pills"></i></div>
                     <h4>****</h4>
-                    <p>*********************</p>
+                    <p>*********************************************************</p>
                   </div>
                 </div>
       
@@ -115,7 +119,7 @@
                   <div class="icon-box">
                     <div class="icon"><i class="fas fa-hospital-user"></i></div>
                     <h4>****</h4>
-                    <p>*********************</p>
+                    <p>*********************************************************</p>
                   </div>
                 </div>
       
@@ -123,7 +127,7 @@
                   <div class="icon-box">
                     <div class="icon"><i class="fas fa-dna"></i></div>
                     <h4>****</h4>
-                    <p>*********************</p>
+                    <p>*********************************************************</p>
                   </div>
                 </div>
       
@@ -131,7 +135,7 @@
                   <div class="icon-box">
                     <div class="icon"><i class="fas fa-wheelchair"></i></div>
                     <h4>****</h4>
-                    <p>*********************</p>
+                    <p>*********************************************************</p>
                   </div>
                 </div>
       
@@ -139,7 +143,7 @@
                   <div class="icon-box">
                     <div class="icon"><i class="fas fa-notes-medical"></i></div>
                     <h4>****</h4>
-                    <p>*********************</p>
+                    <p>*********************************************************</p>
                   </div>
                 </div>
       

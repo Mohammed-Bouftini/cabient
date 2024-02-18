@@ -475,7 +475,7 @@ p {
   
   .contact .info h4 {
     padding: 0 0 0 60px;
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 600;
     margin-bottom: 5px;
     color: #2c4964;
@@ -484,13 +484,7 @@ p {
   .contact .info p {
     padding: 0 0 0 60px;
     margin-bottom: 0;
-    font-size: 14px;
-    color: #4b7dab;
-  }
-  .contact .info a {
-    padding: 0 0 0 60px;
-    margin-bottom: 0;
-    font-size: 14px;
+    font-size: 10px;
     color: #4b7dab;
   }
   

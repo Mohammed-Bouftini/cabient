@@ -9,10 +9,13 @@
     {% load static %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-..."
 crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
-    <script src="{% static 'script.js' %}"></script>
-
+<link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="{% static 'script.js' %}"></script>
 </head>
 <body>
     <header>
@@ -51,13 +54,12 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
                 <form action="{% url 'set_language' %}" method="post" class="language-selector-container">
                     {% csrf_token %}
                     <input name="next" type="hidden" value="{{ redirect_to }}">
-                    <select name="language" onchange="this.form.submit()" class="custom-select">
+                    <select name="language" onchange="this.form.submit()">
                         {% get_current_language as LANGUAGE_CODE %}
                         {% get_available_languages as LANGUAGES %}
                         {% get_language_info_list for LANGUAGES as languages %}
                         {% for language in languages %}
                             <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected {% endif %}>
-                                <img src="{% static 'images/' %}{{ language.code }}.png" alt="{{ language.name_local }}" width="16" height="16">
                                 {{ language.name_local }} ({{ language.code }})
                             </option>
                         {% endfor %}
@@ -113,38 +115,33 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
     </section>
     <section class="appointment-section">
         <div class="section-title">
-        <h2>{% trans "Liste des Rendez-vous" %}</h2>
-        </div>
-        {% if liste_rendezvous %}
-            {% regroup liste_rendezvous by date as grouped_dates %}
-            {% for date_group in grouped_dates %}
-                <h3 style="margin-top: 15px;">{{ date_group.grouper }}</h3>
-    
-                <table class="appointment-table">
-                    <thead>
-                        <tr>
-                            <th>{% trans "Nom" %}</th>
-                            <th>{% trans "Prenom" %}</th>
-                            <th>{% trans "Date" %}</th>
-                            <th>{% trans "Heure" %}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for rendezvous in date_group.list %}
-                            <tr class="appointment-row">
-                                <td>{{ rendezvous.nom }}</td>
-                                <td>{{ rendezvous.prenom }}</td>
-                                <td>{{ rendezvous.date }}</td>
-                                <td>{{ rendezvous.time }}</td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            {% endfor %}
-        {% else %}
-            <p>{% trans "Il n'y a pas de rendez-vous pour le moment." %}</p>
-        {% endif %}
-    </section>
+               <h2>{% trans "Liste des Rendez-vous" %}</h2>
+       </div>
+       {% if liste_rendezvous %}
+        <table class="appointment-table">
+            <thead>
+                <tr>
+                   <th>{% trans "Nom" %}</th>
+                   <th>{% trans "Prenom" %}</th>
+                   <th>{% trans "Date" %}</th>
+                   <th>{% trans "Heure" %}</th>
+               </tr>
+           </thead>
+           <tbody>
+               {% for rendezvous in liste_rendezvous %}
+                   <tr class="appointment-row">
+                       <td>{{ rendezvous.nom }}</td>
+                       <td>{{ rendezvous.prenom }}</td>
+                       <td>{{ rendezvous.date }}</td>
+                       <td>{{ rendezvous.time }}</td>
+                   </tr>
+               {% endfor %}
+               </tbody>
+           </table>
+           {% else %}
+           <p>{% trans "Il n'y a pas de rendez-vous pour le moment." %}</p>
+           {% endif %}
+       </section>
     
     
     <img src="{% static 'images/rendezvous1.png' %}" alt="Prendre Rendez-vous">

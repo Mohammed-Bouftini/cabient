@@ -8,13 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% trans "Contactez-nous - Ma Clinique de "%}"</title>
     {% load static %}
-    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-          integrity="sha512-..."
-          referrerpolicy="no-referrer" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-..."
+crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.19.0/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@latest/font/bootstrap-icons.css" rel="stylesheet">
 
-    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
-    <script src="{% static 'script.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="{% static 'script.js' %}"></script>
 
 </head>
 <body>
@@ -54,13 +59,12 @@
                 <form action="{% url 'set_language' %}" method="post" class="language-selector-container">
                     {% csrf_token %}
                     <input name="next" type="hidden" value="{{ redirect_to }}">
-                    <select name="language" onchange="this.form.submit()" class="custom-select">
+                    <select name="language" onchange="this.form.submit()">
                         {% get_current_language as LANGUAGE_CODE %}
                         {% get_available_languages as LANGUAGES %}
                         {% get_language_info_list for LANGUAGES as languages %}
                         {% for language in languages %}
                             <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected {% endif %}>
-                                <img src="{% static 'images/' %}{{ language.code }}.png" alt="{{ language.name_local }}" width="16" height="16">
                                 {{ language.name_local }} ({{ language.code }})
                             </option>
                         {% endfor %}
@@ -73,9 +77,86 @@
         <section>
         <div class="section-title">
         <h2>{% trans "Contactez-nous" %}</h2>
+        <p>{% trans "Pour prendre rendez-vous ou pour toute question, n'hésitez pas à nous contacter :" %}</p>
         </div>
         <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.2136424682117!2d-5.041876624781646!3d33.88415122658822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd9f8933d487b581%3A0xf084e7888034948f!2sCabinet%20Dr%20Hind%20Erradi!5e0!3m2!1sfr!2sfr!4v1708035910498!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <p>{% trans "Pour prendre rendez-vous ou pour toute question, n'hésitez pas à nous contacter :" %}</p>
+        <div class="container">
+            <div class="row mt-5">
+            <div id="contact" class="contact">
+              <div class="col-lg-4"></div>
+                <div class="info">
+                  <div class="address">
+                    <i class="bi bi-geo-alt"></i>
+                    <h4>Location:</h4>
+                    <p>A108 Adam Street, New York, NY 535022</p>
+                  </div>
+    
+                  <div class="email">
+                    <i class="bi bi-envelope"></i>
+                    <h4>{% trans "Email :" %}</h4>
+                    <a href="mailto:ouadie.affous.oa@gmail.com">ouadie.affous.oa@gmail.com</a><br>
+                  </div>
+    
+                  <div class="phone">
+                    <i class="bi bi-phone"></i>
+                    <h4>{% trans "Téléphone :" %}</h4>
+                    <a href="tel:+212690153603">+212 6 90 15 36 03</a>
+                  </div>
+                  <div style="margin-top: 15px;" class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61555946494139&mibextid=2JQ9oc" target="_blank" class="icon-link"><img src="{% static 'images/facebook.png' %}" alt="Facebook" class="social-icon"></a>
+                    <a href="https://www.instagram.com/pt.ouadie.affouss?igsh=MTF4YjJ6MTVvYmJxdg==" target="_blank" class="icon-link"><img src="{% static 'images/instagram.png' %}" alt="Instagram" class="social-icon"></a>
+                    <a href="https://wa.me/212633571960" target="_blank" class="icon-link"><img src="{% static 'images/whatsapp.png' %}" alt="WhatsApp" class="social-icon"></a>
+                </div>
+    
+                </div>
+    
+              </div>
+    
+              <div class="col-lg-8 mt-5 mt-lg-0">
+    
+                <form class="contact" id="appointment-form" method="post" action="{% url 'contact' %}">
+
+                    {% csrf_token %}
+            
+            <!-- Display success message -->
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+                  <div class="form-group mt-3">
+                    <label for="name">{% trans "Vos noms et prénoms (obligatoire)" %}</label>
+                      <input type="text" name="name" class="form-control" id="name" placeholder="Vos noms et prénoms" required>
+                  </div>
+                  <div class="form-group mt-3">
+                    <label for="email">{% trans "Votre email (obligatoire)" %}</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+                  </div>
+
+                  <div class="form-group mt-3">
+                    <label for="phone">{% trans "Votre téléphone (obligatoire)" %}</label>
+            <input type="text" id="phone" name="phone" pattern="[0-9]{10}" title="{% trans 'Veuillez entrer un numéro de téléphone à 10 chiffres' %}" placeholder="Téléphone" required>
+                  </div>
+                  <div class="form-group mt-3">
+                    <label for="subject">{% trans "Sujet" %}</label>
+                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subje" required>
+                  </div>
+                  <div class="form-group mt-3">
+                    <label for="message">{% trans "Votre message" %}</label>
+                    <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                  </div>
+                  <input type="submit" value="{% trans 'Envoyer' %}">
+                </form>
+    
+              </div>
+    
+            </div>
+    
+          </div>
+       
+       <!-- p>{% trans "Pour prendre rendez-vous ou pour toute question, n'hésitez pas à nous contacter :" %}</p>
         <address style="margin-top: 15px;" >
             <i class="fas fa-envelope"></i> {% trans "Email :" %}
             <a href="mailto:ouadie.affous.oa@gmail.com">ouadie.affous.oa@gmail.com</a><br>
@@ -91,7 +172,6 @@
         <form class="contact" id="appointment-form" method="post" action="{% url 'contact' %}">
             {% csrf_token %}
             
-            <!-- Display success message -->
             {% if messages %}
                 <ul class="messages">
                     {% for message in messages %}
@@ -116,7 +196,7 @@
             <textarea id="message" name="message" rows="4" required></textarea>
         
             <input type="submit" value="{% trans 'Envoyer' %}">
-        </form>
+        </form>-->
         
     
         <img src="{% static 'images/contact.png' %}" alt="Contactez-nous">
