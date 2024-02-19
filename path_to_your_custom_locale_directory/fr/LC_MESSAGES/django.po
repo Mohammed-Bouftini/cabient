@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 22:50+0100\n"
+"POT-Creation-Date: 2024-02-20 00:09+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,23 +22,23 @@ msgstr ""
 msgid "Noms et prénoms"
 msgstr "Noms et prénoms"
 
-#: .\clinic\models.py:9
+#: .\clinic\models.py:9 .\clinic\templates\clinic\contact.html:132
 #, fuzzy
 #| msgid "Téléphone:"
 msgid "Téléphone"
 msgstr "Téléphone:"
 
-#: .\clinic\models.py:10
+#: .\clinic\models.py:10 .\clinic\templates\clinic\contact.html:127
 #, fuzzy
 #| msgid "Email :"
 msgid "Email"
 msgstr "Email :"
 
-#: .\clinic\models.py:11 .\clinic\templates\clinic\contact.html:105
+#: .\clinic\models.py:11 .\clinic\templates\clinic\contact.html:135
 msgid "Sujet"
 msgstr "Sujet"
 
-#: .\clinic\models.py:12
+#: .\clinic\models.py:12 .\clinic\templates\clinic\contact.html:140
 msgid "Message"
 msgstr "Message"
 
@@ -46,14 +46,14 @@ msgstr "Message"
 msgid "Date de création"
 msgstr "Date de création"
 
-#: .\clinic\models.py:19 .\clinic\templates\clinic\contact.html:33
-#: .\clinic\templates\clinic\contact.html:42
-#: .\clinic\templates\clinic\index.html:27
-#: .\clinic\templates\clinic\index.html:36
-#: .\clinic\templates\clinic\rendezvous.html:30
-#: .\clinic\templates\clinic\rendezvous.html:39
-#: .\clinic\templates\clinic\services.html:28
-#: .\clinic\templates\clinic\services.html:37
+#: .\clinic\models.py:19 .\clinic\templates\clinic\contact.html:39
+#: .\clinic\templates\clinic\contact.html:48
+#: .\clinic\templates\clinic\index.html:35
+#: .\clinic\templates\clinic\index.html:44
+#: .\clinic\templates\clinic\rendezvous.html:35
+#: .\clinic\templates\clinic\rendezvous.html:44
+#: .\clinic\templates\clinic\services.html:36
+#: .\clinic\templates\clinic\services.html:45
 msgid "Contact"
 msgstr "Contact"
 
@@ -95,46 +95,45 @@ msgstr ""
 msgid "Contactez-nous - Ma Clinique de "
 msgstr "Contactez-nous - Ma Clinique de"
 
-#: .\clinic\templates\clinic\contact.html:31
-#: .\clinic\templates\clinic\contact.html:40
-#: .\clinic\templates\clinic\index.html:25
-#: .\clinic\templates\clinic\index.html:34
-#: .\clinic\templates\clinic\rendezvous.html:28
-#: .\clinic\templates\clinic\rendezvous.html:37
-#: .\clinic\templates\clinic\services.html:26
-#: .\clinic\templates\clinic\services.html:35
+#: .\clinic\templates\clinic\contact.html:37
+#: .\clinic\templates\clinic\contact.html:46
+#: .\clinic\templates\clinic\index.html:33
+#: .\clinic\templates\clinic\index.html:42
+#: .\clinic\templates\clinic\rendezvous.html:33
+#: .\clinic\templates\clinic\rendezvous.html:42
+#: .\clinic\templates\clinic\services.html:34
+#: .\clinic\templates\clinic\services.html:43
 msgid "Accueil"
 msgstr "Accueil"
 
-#: .\clinic\templates\clinic\contact.html:32
-#: .\clinic\templates\clinic\contact.html:41
-#: .\clinic\templates\clinic\index.html:26
-#: .\clinic\templates\clinic\index.html:35
-#: .\clinic\templates\clinic\rendezvous.html:29
-#: .\clinic\templates\clinic\rendezvous.html:38
-#: .\clinic\templates\clinic\services.html:27
-#: .\clinic\templates\clinic\services.html:36
+#: .\clinic\templates\clinic\contact.html:38
+#: .\clinic\templates\clinic\contact.html:47
+#: .\clinic\templates\clinic\index.html:34
+#: .\clinic\templates\clinic\index.html:43
+#: .\clinic\templates\clinic\rendezvous.html:34
+#: .\clinic\templates\clinic\rendezvous.html:43
+#: .\clinic\templates\clinic\services.html:35
+#: .\clinic\templates\clinic\services.html:44
+#: .\clinic\templates\clinic\services.html:77
 msgid "Services"
 msgstr "Services"
 
-#: .\clinic\templates\clinic\contact.html:34
-#: .\clinic\templates\clinic\contact.html:43
-#: .\clinic\templates\clinic\index.html:28
-#: .\clinic\templates\clinic\index.html:37
-#: .\clinic\templates\clinic\rendezvous.html:31
-#: .\clinic\templates\clinic\rendezvous.html:40
-#: .\clinic\templates\clinic\services.html:29
-#: .\clinic\templates\clinic\services.html:38
+#: .\clinic\templates\clinic\contact.html:40
+#: .\clinic\templates\clinic\contact.html:49
+#: .\clinic\templates\clinic\index.html:36
+#: .\clinic\templates\clinic\index.html:45
+#: .\clinic\templates\clinic\rendezvous.html:36
+#: .\clinic\templates\clinic\rendezvous.html:45
+#: .\clinic\templates\clinic\services.html:37
+#: .\clinic\templates\clinic\services.html:46
 msgid "Rendez-vous"
 msgstr "Rendez-vous"
 
-#: .\clinic\templates\clinic\contact.html:71
-#: .\clinic\templates\clinic\contact.html:119
+#: .\clinic\templates\clinic\contact.html:78
 msgid "Contactez-nous"
 msgstr "Contactez-nous"
 
-#: .\clinic\templates\clinic\contact.html:72
-#: .\clinic\templates\clinic\contact.html:120
+#: .\clinic\templates\clinic\contact.html:79
 msgid ""
 "Pour prendre rendez-vous ou pour toute question, n'hésitez pas à nous "
 "contacter :"
@@ -142,129 +141,137 @@ msgstr ""
 "Pour prendre rendez-vous ou pour toute question, n'hésitez pas à nous "
 "contacter :"
 
-#: .\clinic\templates\clinic\contact.html:74
-#: .\clinic\templates\clinic\contact.html:122
-#: .\clinic\templates\clinic\rendezvous.html:93
+#: .\clinic\templates\clinic\contact.html:89
+msgid "Localisation :"
+msgstr ""
+
+#: .\clinic\templates\clinic\contact.html:94
+#: .\clinic\templates\clinic\rendezvous.html:99
 msgid "Email :"
 msgstr "Email :"
 
-#: .\clinic\templates\clinic\contact.html:76
-#: .\clinic\templates\clinic\contact.html:124
+#: .\clinic\templates\clinic\contact.html:99
 msgid "Téléphone :"
 msgstr "Téléphone :"
 
-#: .\clinic\templates\clinic\contact.html:96
+#: .\clinic\templates\clinic\contact.html:122
 msgid "Vos noms et prénoms (obligatoire)"
 msgstr ""
 
-#: .\clinic\templates\clinic\contact.html:99
-msgid "Votre téléphone (obligatoire)"
-msgstr ""
+#: .\clinic\templates\clinic\contact.html:123
+#, fuzzy
+#| msgid "Noms et prénoms"
+msgid "Vos noms et prénoms"
+msgstr "Noms et prénoms"
 
-#: .\clinic\templates\clinic\contact.html:100
-msgid "Veuillez entrer un numéro de téléphone à 10 chiffres"
-msgstr ""
-
-#: .\clinic\templates\clinic\contact.html:102
+#: .\clinic\templates\clinic\contact.html:126
 msgid "Votre email (obligatoire)"
 msgstr ""
 
-#: .\clinic\templates\clinic\contact.html:108
+#: .\clinic\templates\clinic\contact.html:131
+msgid "Votre téléphone (obligatoire)"
+msgstr ""
+
+#: .\clinic\templates\clinic\contact.html:132
+msgid "Veuillez entrer un numéro de téléphone à 10 chiffres"
+msgstr ""
+
+#: .\clinic\templates\clinic\contact.html:136
+msgid "Subje"
+msgstr ""
+
+#: .\clinic\templates\clinic\contact.html:139
 msgid "Votre message"
 msgstr ""
 
-#: .\clinic\templates\clinic\contact.html:111
+#: .\clinic\templates\clinic\contact.html:142
 msgid "Envoyer"
 msgstr "Envoyer"
 
-#: .\clinic\templates\clinic\contact.html:155
-#, fuzzy
-#| msgid " 2024 Cabinet de kinésithérapie & physiothérapie."
-msgid " 2024 Cabinet de kinésithérapie & physiothérapie."
-msgstr "2024 Cabinet de kinésithérapie & physiothérapie."
-
-#: .\clinic\templates\clinic\index.html:9
-#: .\clinic\templates\clinic\index.html:66
-msgid "Cabinet de kinésithérapie & physiothérapie"
-msgstr "Cabinet de kinésithérapie & physiothérapie"
-
-#: .\clinic\templates\clinic\index.html:67
-msgid ""
-"Nous sommes dédiés à améliorer votre santé et votre bien-être grâce à nos "
-"services de qualité."
-msgstr ""
-"Nous sommes dédiés à améliorer votre santé et votre bien-être grâce à nos "
-"services de qualité."
-
-#: .\clinic\templates\clinic\index.html:70
-msgid "Votre navigateur ne prend pas en charge la balise vidéo."
-msgstr "Votre navigateur ne prend pas en charge la balise vidéo."
-
-#: .\clinic\templates\clinic\index.html:77
-#: .\clinic\templates\clinic\rendezvous.html:192
-#: .\clinic\templates\clinic\services.html:88
+#: .\clinic\templates\clinic\contact.html:171
+#: .\clinic\templates\clinic\index.html:100
+#: .\clinic\templates\clinic\rendezvous.html:167
+#: .\clinic\templates\clinic\services.html:151
 #, fuzzy
 #| msgid "2024 Cabinet de kinésithérapie & physiothérapie."
 msgid "2024 Cabinet de kinésithérapie & physiothérapie."
 msgstr "2024 Cabinet de kinésithérapie & physiothérapie."
 
+#: .\clinic\templates\clinic\index.html:9
+#: .\clinic\templates\clinic\index.html:75
+msgid "Cabinet de kinésithérapie & physiothérapie"
+msgstr "Cabinet de kinésithérapie & physiothérapie"
+
+#: .\clinic\templates\clinic\index.html:76
+#: .\clinic\templates\clinic\services.html:78
+msgid ""
+"Nous sommes dédiés à améliorer votre santé et votre bien-être grâce à nos "
+"services de qualité."
+msgstr ""
+"Nous sommes dédiés à améliorer votre santé et votre bien-être grâce à nos "
+"services de qualité."
+
+#: .\clinic\templates\clinic\index.html:79
+msgid "Votre navigateur ne prend pas en charge la balise vidéo."
+msgstr "Votre navigateur ne prend pas en charge la balise vidéo."
+
 #: .\clinic\templates\clinic\rendezvous.html:8
 msgid "Prendre Rendez-vous - Cabinet de kinésithérapie & physiothérapie"
 msgstr "Prendre Rendez-vous - Cabinet de kinésithérapie & physiothérapie"
 
-#: .\clinic\templates\clinic\rendezvous.html:69
+#: .\clinic\templates\clinic\rendezvous.html:75
 msgid "Prise de Rendez-vous"
 msgstr "Prise de Rendez-vous"
 
-#: .\clinic\templates\clinic\rendezvous.html:81
+#: .\clinic\templates\clinic\rendezvous.html:87
 msgid "Nom :"
 msgstr "Nom :"
 
-#: .\clinic\templates\clinic\rendezvous.html:84
+#: .\clinic\templates\clinic\rendezvous.html:90
 msgid "Prenom :"
 msgstr "Prenom :"
 
-#: .\clinic\templates\clinic\rendezvous.html:87
+#: .\clinic\templates\clinic\rendezvous.html:93
 msgid "CIN :"
 msgstr ""
 
-#: .\clinic\templates\clinic\rendezvous.html:90
+#: .\clinic\templates\clinic\rendezvous.html:96
 msgid "Téléphone:"
 msgstr "Téléphone:"
 
-#: .\clinic\templates\clinic\rendezvous.html:96
+#: .\clinic\templates\clinic\rendezvous.html:102
 msgid "Date :"
 msgstr "Date :"
 
-#: .\clinic\templates\clinic\rendezvous.html:99
+#: .\clinic\templates\clinic\rendezvous.html:105
 msgid "Heure de début :"
 msgstr "Heure de début :"
 
-#: .\clinic\templates\clinic\rendezvous.html:104
+#: .\clinic\templates\clinic\rendezvous.html:109
 msgid "Réserver"
 msgstr "Réserver"
 
-#: .\clinic\templates\clinic\rendezvous.html:150
+#: .\clinic\templates\clinic\rendezvous.html:117
 msgid "Liste des Rendez-vous"
 msgstr "Liste des Rendez-vous"
 
-#: .\clinic\templates\clinic\rendezvous.html:160
+#: .\clinic\templates\clinic\rendezvous.html:123
 msgid "Nom"
 msgstr "Nom"
 
-#: .\clinic\templates\clinic\rendezvous.html:161
+#: .\clinic\templates\clinic\rendezvous.html:124
 msgid "Prenom"
 msgstr "Prenom"
 
-#: .\clinic\templates\clinic\rendezvous.html:162
+#: .\clinic\templates\clinic\rendezvous.html:125
 msgid "Date"
 msgstr "Date"
 
-#: .\clinic\templates\clinic\rendezvous.html:163
+#: .\clinic\templates\clinic\rendezvous.html:126
 msgid "Heure"
 msgstr "Heure"
 
-#: .\clinic\templates\clinic\rendezvous.html:179
+#: .\clinic\templates\clinic\rendezvous.html:141
 msgid "Il n'y a pas de rendez-vous pour le moment."
 msgstr "Il n'y a pas de rendez-vous pour le moment."
 
@@ -272,11 +279,70 @@ msgstr "Il n'y a pas de rendez-vous pour le moment."
 msgid "Nos Services - Ma Clinique de Physiothérapie"
 msgstr "Nos Services - Ma Clinique de Physiothérapie"
 
-#: .\clinic\templates\clinic\services.html:66
+#: .\clinic\templates\clinic\services.html:85
+msgid "Évaluation initiale"
+msgstr ""
+
+#: .\clinic\templates\clinic\services.html:86
+msgid ""
+"Une évaluation complète de vos antécédents médicaux, de votre condition "
+"physique et de vos symptômes pour établir un plan de traitement personnalisé."
+msgstr ""
+
+#: .\clinic\templates\clinic\services.html:93
+msgid "Thérapie manuelle"
+msgstr "Thérapie manuelle"
+
+#: .\clinic\templates\clinic\services.html:94
+msgid ""
+"Des techniques manuelles telles que le massage, la mobilisation articulaire "
+"et l'étirement pour améliorer la mobilité, soulager la douleur et favoriser "
+"la guérison."
+msgstr ""
+
+#: .\clinic\templates\clinic\services.html:101
+msgid "Exercices thérapeutiques"
+msgstr ""
+
+#: .\clinic\templates\clinic\services.html:102
+msgid ""
+"Un programme d'exercices personnalisé pour renforcer les muscles, améliorer "
+"la stabilité et favoriser la rééducation fonctionnelle."
+msgstr ""
+
+#: .\clinic\templates\clinic\services.html:109
 #, fuzzy
-#| msgid "Services"
-msgid "Nos Services"
-msgstr "Services"
+#| msgid "Thécartherapie"
+msgid "Électrothérapie"
+msgstr "Thécartherapie"
+
+#: .\clinic\templates\clinic\services.html:110
+msgid ""
+"L'utilisation de courants électriques à des fins thérapeutiques, tels que la "
+"stimulation musculaire et la réduction de la douleur."
+msgstr ""
+
+#: .\clinic\templates\clinic\services.html:117
+#, fuzzy
+#| msgid "Thérapie manuelle"
+msgid "Thérapie par ultrasons"
+msgstr "Thérapie manuelle"
+
+#: .\clinic\templates\clinic\services.html:118
+msgid ""
+"L'utilisation d'ondes ultrasonores pour stimuler la guérison des tissus "
+"profonds et réduire l'inflammation."
+msgstr ""
+
+#: .\clinic\templates\clinic\services.html:125
+msgid "Conseils et éducation"
+msgstr ""
+
+#: .\clinic\templates\clinic\services.html:126
+msgid ""
+"Des conseils sur la posture, l'ergonomie, la prévention des blessures et la "
+"gestion de la douleur pour favoriser une récupération durable."
+msgstr ""
 
 #: .\myenv\Lib\site-packages\django\contrib\messages\apps.py:16
 msgid "Messages"
@@ -1498,11 +1564,18 @@ msgstr ""
 msgid "Connect, get help, or contribute"
 msgstr ""
 
+#, fuzzy
+#~| msgid " 2024 Cabinet de kinésithérapie & physiothérapie."
+#~ msgid " 2024 Cabinet de kinésithérapie & physiothérapie."
+#~ msgstr "2024 Cabinet de kinésithérapie & physiothérapie."
+
+#, fuzzy
+#~| msgid "Services"
+#~ msgid "Nos Services"
+#~ msgstr "Services"
+
 #~ msgid "Email : "
 #~ msgstr "Email :"
-
-#~ msgid "Thérapie manuelle"
-#~ msgstr "Thérapie manuelle"
 
 #~ msgid "Rééducation post-opératoire"
 #~ msgstr "Rééducation post-opératoire"
@@ -1545,9 +1618,6 @@ msgstr ""
 
 #~ msgid "Ondes de choc"
 #~ msgstr "Ondes de choc"
-
-#~ msgid "Thécartherapie"
-#~ msgstr "Thécartherapie"
 
 #~ msgid "Pressotherapie"
 #~ msgstr "Pressotherapie"

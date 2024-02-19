@@ -70,80 +70,60 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
         </div>
     </header>
     <main>
-        <!--<section class="centered-section">
-            <h2>{% trans "Nos Services" %}</h2>
-            <img src="{% static 'images/services.png' %}" alt="Nos Services">
-            <ul>
-                {% for service in services %}
-                    <li>
-                        <h1>{{ service.name }}</h1>
-                        <img class="thumbnail" src="{{ service.imageURL }}">
-                    </li>
-                {% endfor %}
-            </ul>
-            
-            <ul>
-                {% for servicenoimage in servicesnoimages %}
-                    <li>
-                        <h1>{{ servicenoimage.name }}</h1>
-                    </li>
-                {% endfor %}
-            </ul>       
-        </section>-->
         <section id="services" class="services">
             <div class="container">
       
               <div class="section-title">
-                <h2>Services</h2>
-                <p>Nous sommes dédiés à améliorer votre santé et votre bien-être grâce à nos services de qualité.</p>
+                <h2>{% trans "Services" %}</h2>
+                <p>{% trans "Nous sommes dédiés à améliorer votre santé et votre bien-être grâce à nos services de qualité." %}</p>
               </div>
       
               <div class="row">
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                   <div class="icon-box">
                     <div class="icon"><i class="fas fa-heartbeat"></i></div>
-                    <h4>Évaluation initiale</h4>
-                    <p>Une évaluation complète de vos antécédents médicaux, de votre condition physique et de vos symptômes pour établir un plan de traitement personnalisé.</p>
+                    <h4>{% trans "Évaluation initiale" %}</h4>
+                    <p>{% trans "Une évaluation complète de vos antécédents médicaux, de votre condition physique et de vos symptômes pour établir un plan de traitement personnalisé." %}</p>
                   </div>
                 </div>
         
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
                   <div class="icon-box">
                     <div class="icon"><i class="fas fa-solid fa-hand-holding-medical"></i></div>
-                    <h4>Thérapie manuelle</h4>
-                    <p>Des techniques manuelles telles que le massage, la mobilisation articulaire et l'étirement pour améliorer la mobilité, soulager la douleur et favoriser la guérison.</p>
+                    <h4>{% trans "Thérapie manuelle" %}</h4>
+                    <p>{% trans "Des techniques manuelles telles que le massage, la mobilisation articulaire et l'étirement pour améliorer la mobilité, soulager la douleur et favoriser la guérison." %}</p>
                   </div>
                 </div>
       
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
                   <div class="icon-box">
                     <div class="icon"><i class="fas fa-hospital-user"></i></div>
-                    <h4>Exercices thérapeutiques</h4>
-                    <p> Un programme d'exercices personnalisé pour renforcer les muscles, améliorer la stabilité et favoriser la rééducation fonctionnelle.</p>
+                    <h4>{% trans "Exercices thérapeutiques" %}</h4>
+                    <p>{% trans "Un programme d'exercices personnalisé pour renforcer les muscles, améliorer la stabilité et favoriser la rééducation fonctionnelle." %}</p>
                   </div>
                 </div>
       
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
                   <div class="icon-box">
                     <div class="icon"><i class="fas fa-dna"></i></div>
-                    <h4>Électrothérapie</h4>
-                    <p> L'utilisation de courants électriques à des fins thérapeutiques, tels que la stimulation musculaire et la réduction de la douleur.</p>
+                    <h4>{% trans "Électrothérapie" %}</h4>
+                    <p> {% trans "L'utilisation de courants électriques à des fins thérapeutiques, tels que la stimulation musculaire et la réduction de la douleur." %}</p>
                   </div>
                 </div>
       
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
                   <div class="icon-box">
                     <div class="icon"><i class="fas fa-solid fa-laptop-medical"></i></div>
-                    <h4>Thérapie par ultrasons</h4>
-                    <p> L'utilisation d'ondes ultrasonores pour stimuler la guérison des tissus profonds et réduire l'inflammation.</p>
+                    <h4>{% trans "Thérapie par ultrasons" %}</h4>
+                    <p> {% trans "L'utilisation d'ondes ultrasonores pour stimuler la guérison des tissus profonds et réduire l'inflammation." %}</p>
                   </div>
                 </div>
       
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
                   <div class="icon-box">
                     <div class="icon"><i class="fas fa-notes-medical"></i></div>
-                    <h4>Conseils et éducation</h4>
-                    <p>Des conseils sur la posture, l'ergonomie, la prévention des blessures et la gestion de la douleur pour favoriser une récupération durable.</p>
+                    <h4>{% trans "Conseils et éducation" %}</h4>
+                    <p>{% trans "Des conseils sur la posture, l'ergonomie, la prévention des blessures et la gestion de la douleur pour favoriser une récupération durable." %}</p>
                   </div>
                 </div>
       
