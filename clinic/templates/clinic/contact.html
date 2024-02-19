@@ -29,7 +29,6 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
                 <img src="{% static 'images/logo.png' %}" alt="Logo de la clinique">
                 <h1>Cabinet PT Affous</h1>
             </div>
-           
             <div class="menu-toggle">
                 <input type="checkbox" id="menu-btn">
                 <label for="menu-btn">&#9776;</label>
@@ -87,16 +86,14 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
                 <div class="info">
                   <div class="address">
                     <i class="bi bi-geo-alt"></i>
-                    <h4>Location:</h4>
+                    <h4>{% trans "Localisation :" %}</h4>
                     <p>A108 Adam Street, New York, NY 535022</p>
                   </div>
-    
                   <div class="email">
                     <i class="bi bi-envelope"></i>
                     <h4>{% trans "Email :" %}</h4>
                     <a href="mailto:ouadie.affous.oa@gmail.com">ouadie.affous.oa@gmail.com</a><br>
                   </div>
-    
                   <div class="phone">
                     <i class="bi bi-phone"></i>
                     <h4>{% trans "Téléphone :" %}</h4>
@@ -111,41 +108,36 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
                 </div>
     
               </div>
-    
               <div class="col-lg-8 mt-5 mt-lg-0">
-    
                 <form class="contact" id="appointment-form" method="post" action="{% url 'contact' %}">
-
                     {% csrf_token %}
-            
-            <!-- Display success message -->
-            {% if messages %}
-                <ul class="messages">
-                    {% for message in messages %}
-                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
+                     {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                     {% endif %}
                   <div class="form-group mt-3">
-                    <label for="name">{% trans "Vos noms et prénoms (obligatoire)" %}</label>
-                      <input type="text" name="name" class="form-control" id="name" placeholder="Vos noms et prénoms" required>
+                        <label for="name">{% trans "Vos noms et prénoms (obligatoire)" %}</label>
+                        <input type="text" name="name" class="form-control" id="name" placeholder="{% trans 'Vos noms et prénoms' %}" required>
                   </div>
                   <div class="form-group mt-3">
-                    <label for="email">{% trans "Votre email (obligatoire)" %}</label>
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+                        <label for="email">{% trans "Votre email (obligatoire)" %}</label>
+                         <input type="email" class="form-control" name="email" id="email" placeholder="{% trans 'Email' %}" required>
                   </div>
 
                   <div class="form-group mt-3">
-                    <label for="phone">{% trans "Votre téléphone (obligatoire)" %}</label>
-            <input type="text" id="phone" name="phone" pattern="[0-9]{10}" title="{% trans 'Veuillez entrer un numéro de téléphone à 10 chiffres' %}" placeholder="Téléphone" required>
+                        <label for="phone">{% trans "Votre téléphone (obligatoire)" %}</label>
+                        <input type="text" id="phone" name="phone" pattern="[0-9]{10}" title="{% trans 'Veuillez entrer un numéro de téléphone à 10 chiffres' %}" placeholder="{% trans 'Téléphone' %}" required>
                   </div>
                   <div class="form-group mt-3">
-                    <label for="subject">{% trans "Sujet" %}</label>
-                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subje" required>
+                        <label for="subject">{% trans "Sujet" %}</label>
+                        <input type="text" class="form-control" name="subject" id="subject" placeholder="{% trans 'Subje' %}" required>
                   </div>
                   <div class="form-group mt-3">
-                    <label for="message">{% trans "Votre message" %}</label>
-                    <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                        <label for="message">{% trans "Votre message" %}</label>
+                        <textarea class="form-control" name="message" rows="5" placeholder="{% trans 'Message' %}" required></textarea>
                   </div>
                   <input type="submit" value="{% trans 'Envoyer' %}">
                 </form>
@@ -155,88 +147,10 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
             </div>
     
           </div>
-       
-       <!-- p>{% trans "Pour prendre rendez-vous ou pour toute question, n'hésitez pas à nous contacter :" %}</p>
-        <address style="margin-top: 15px;" >
-            <i class="fas fa-envelope"></i> {% trans "Email :" %}
-            <a href="mailto:ouadie.affous.oa@gmail.com">ouadie.affous.oa@gmail.com</a><br>
-            <i  class="fas fa-phone"></i> {% trans "Téléphone :" %}
-            <a href="tel:+212690153603">+212 6 90 15 36 03</a>
-        </address>
-        <div style="margin-top: 15px;" class="social-icons">
-            <a href="https://www.facebook.com/profile.php?id=61555946494139&mibextid=2JQ9oc" target="_blank" class="icon-link"><img src="{% static 'images/facebook.png' %}" alt="Facebook" class="social-icon"></a>
-            <a href="https://www.instagram.com/pt.ouadie.affouss?igsh=MTF4YjJ6MTVvYmJxdg==" target="_blank" class="icon-link"><img src="{% static 'images/instagram.png' %}" alt="Instagram" class="social-icon"></a>
-            <a href="https://wa.me/212633571960" target="_blank" class="icon-link"><img src="{% static 'images/whatsapp.png' %}" alt="WhatsApp" class="social-icon"></a>
-        </div>
-    
-        <form class="contact" id="appointment-form" method="post" action="{% url 'contact' %}">
-            {% csrf_token %}
-            
-            {% if messages %}
-                <ul class="messages">
-                    {% for message in messages %}
-                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        
-            <label for="name">{% trans "Vos noms et prénoms (obligatoire)" %}</label>
-            <input type="text" id="name" name="name" required>
-        
-            <label for="phone">{% trans "Votre téléphone (obligatoire)" %}</label>
-            <input type="text" id="phone" name="phone" pattern="[0-9]{10}" title="{% trans 'Veuillez entrer un numéro de téléphone à 10 chiffres' %}" required>
-        
-            <label for="email">{% trans "Votre email (obligatoire)" %}</label>
-            <input type="email" id="email" name="email" required>
-        
-            <label for="subject">{% trans "Sujet" %}</label>
-            <input type="text" id="subject" name="subject">
-        
-            <label for="message">{% trans "Votre message" %}</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-        
-            <input type="submit" value="{% trans 'Envoyer' %}">
-        </form>-->
-        
     
         <img src="{% static 'images/contact.png' %}" alt="Contactez-nous">
     </section>
     
-     <!--   <section>
-            <h2 >{% trans "Contactez-nous"%}</h2>
-            <p>{% trans "Pour prendre rendez-vous ou pour toute question, n'hésitez pas à nous contacter :"%}</p>
-            <address>
-                <i class="fas fa-envelope"></i> {% trans "Email :" %}
-                <a href="mailto:ouadie.affous.oa@gmail.com">ouadie.affous.oa@gmail.com</a><br>
-                <i class="fas fa-phone"></i> {% trans "Téléphone :" %}
-                 <a href="tel:+212633571960">+212 6 33 57 19 60</a>
-            </address>
---> 
-           <!--<div id="map" style="height: 400px;"></div>--> 
-
-           <!--- <img src="{% static 'images/contact.png' %}" alt="Contactez-nous">
-        </section>->
-   --> 
-  <!-- <script src="https://www.google.com/maps/place/Cabient+Ouadie+Affousse/@33.8844628,-5.0375567,17z/data=!4m14!1m7!3m6!1s0xd9f89003b1da1eb:0x4ef84094e3a68c0!2sCabient+Ouadie+Affousse!8m2!3d33.8844628!4d-5.0375567!16s%2Fg%2F11ld8p5jwb!3m5!1s0xd9f89003b1da1eb:0x4ef84094e3a68c0!8m2!3d33.8844628!4d-5.0375567!16s%2Fg%2F11ld8p5jwb?entry=ttu" defer></script>
-
-    
-    <script>
-        // Your custom script to initialize the map 
-        function initMap() {
-            // Create a map centered at the specified location
-            var map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: 33.8844628, lng: -5.0375567},
-                zoom: 15
-            });
-
-            // Add a marker at the specified location
-            var marker = new google.maps.Marker({
-                position: {lat: 33.8844628, lng: -5.0375567},
-                map: map,
-                title: 'Ma Clinique de Kinésithérapie & Physiothérapie'
-            });
-        }
-    </script>--> 
 </main>
 <button onclick="topFunction()" id="myBtn" title="Go to top">
     <img src="{% static 'images/fleche.png' %}" alt="Up Arrow">
