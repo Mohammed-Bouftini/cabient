@@ -1,8 +1,8 @@
 h1 {
-  font-family: 'Lobster Two', cursive;
-  font-size: 5rem;
-  text-shadow: 0px 1px 0px rgb(56, 38, 129);
-  color: #ffffff;
+    color: #ffffff;
+    font-size: 25px;
+    font-family: "Raleway", sans-serif;
+    margin-top: 15px;
 }
 .social-icons {
     display: flex;
@@ -40,16 +40,91 @@ h1 {
     width: 45px; /* Adjust the width of the image */
     height: 45px; /* Adjust the height of the image */
 }
+@import url('https://fonts.googleapis.com/css?family=Saira+Extra+Condensed');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Saira Extra Condensed', sans-serif;
+  letter-spacing: 1px;
+  -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0 auto;
+    padding: 0 20px;
+ /* background:{
+    image: url('https://source.unsplash.com/1920x1080/?nature');
+    size: cover;
+    position: center center;
+  }*/
+}
+
+header {
+  background-image: linear-gradient(to bottom,  rgba(0,0,0,0.75) -10%,rgba(0,0,0,0) 100%);
+  text-align: center;
+  padding: 0.5rem 0 5rem;
+  font-size: 1.25rem;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline-flex;
+}
+
+a {
+  position: relative;
+  padding: 1rem 0 0.5rem;
+  margin: 0 1.5rem;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: 50% 50%;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255,255,255,0.8);
+    transition: transform 250ms;
+  }
+  
+  &:hover {
+    
+    &::after {
+      transform: translateX(-50%) scaleX(1);
+    }
+    
+  }
+  
+}
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
 }
-.container {
+.container1 {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
-
+/*
 header {
     background-color: #333;
     color: #fff;
@@ -64,17 +139,15 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+}*/
 
 .logo {
-    
     display: flex;
     align-items: center;
 }
 
 .logo img {
-  border-radius: 50%;
-    width: 55px; /* Ajustez la taille de votre logo selon vos besoins */
+    width: 50px; 
     margin-right: 15px;
 }
 

@@ -1,8 +1,8 @@
 h1 {
-  font-family: 'Lobster Two', cursive;
-  font-size: 5rem;
-  text-shadow: 0px 1px 0px rgb(56, 38, 129);
-  color: #ffffff;
+    color: #ffffff;
+    font-size: 25px;
+    font-family: "Raleway", sans-serif;
+    margin-top: 15px;
 }
 .social-icons {
     display: flex;
@@ -41,70 +41,83 @@ h1 {
     height: 45px; /* Adjust the height of the image */
 }
 body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-}
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    transition: all 0.5s;
-    z-index: 997;
-    padding: 15px 0;
-    top: 40px;
+  background-color: #333; /* Change this to your desired background color */
+  color: #fff; /* Change this to your desired text color */
+  padding: 10px;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Optional: Add a box shadow for a subtle effect */
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    
-    display: flex;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo img {
-  border-radius: 50%;
-    width: 55px; /* Ajustez la taille de votre logo selon vos besoins */
-    margin-right: 15px;
+  max-width: 50px; /* Adjust the max-width according to your logo size */
+}
+
+.logo h1 {
+  margin: 0;
 }
 
 .menu-toggle {
-    display: none;
-    cursor: pointer;
+  display: none; /* Hide the checkbox by default */
+  cursor: pointer;
 }
-.menu-toggle input {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-}
+
 .menu-toggle label {
-    font-size: 24px;
-    cursor: pointer;
+  font-size: 24px;
+  cursor: pointer;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-nav ul li {
-    margin-right: 20px;
+.nav-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
 }
 
-nav a {
-    text-decoration: none;
-    color: #fff;
+.nav-links li {
+  margin-right: 15px;
 }
+
+.social-icons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.social-icon {
+  max-width: 30px; /* Adjust the max-width according to your icon size */
+}
+
+.language-selector-container {
+  display: flex;
+  align-items: center;
+}
+
+.language-selector-container select {
+  margin-left: 10px;
+  padding: 5px;
+}
+
 main {
     padding: 2rem;
 }

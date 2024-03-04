@@ -9,7 +9,6 @@ urlpatterns = [
     path('services/', views.services, name='services'),
     path('contact/', views.contact, name='contact'),
     path('rendezvous/', views.rendezvous, name='rendezvous'),
-    path('adminlogin/', views.adminlogin, name='adminlogin'),
     path('prendre-rendezvous/', views.prendre_rendezvous, name='prendre_rendezvous'),
     path('contact/', views.contact, name='contact'),
     path('change-language/<str:language_code>/', views.change_language, name='change_language'),

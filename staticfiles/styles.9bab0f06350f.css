@@ -67,14 +67,12 @@ header {
 }
 
 .logo {
-    
     display: flex;
     align-items: center;
 }
 
 .logo img {
-  border-radius: 50%;
-    width: 55px; /* Ajustez la taille de votre logo selon vos besoins */
+    width: 50px; /* Ajustez la taille de votre logo selon vos besoins */
     margin-right: 15px;
 }
 

@@ -25,6 +25,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
                 <img src="{% static 'images/logo.png' %}" alt="Logo de la clinique">
                 <h1>Cabinet PT Affous</h1>
             </div>
+            
             <div class="menu-toggle">
                 <input type="checkbox" id="menu-btn">
                 <label for="menu-btn">&#9776;</label>
@@ -50,7 +51,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
                 <a href="https://www.instagram.com/pt.ouadie.affouss?igsh=MTF4YjJ6MTVvYmJxdg==" target="_blank" class="icon-link"><img src="{% static 'images/instagram.png' %}" alt="Instagram" class="social-icon"></a>
                 <a href="https://wa.me/212633571960" target="_blank" class="icon-link"><img src="{% static 'images/whatsapp.png' %}" alt="WhatsApp" class="social-icon"></a>
             </div>
-            <div  class="language">
+            <div class="language">
                 <form action="{% url 'set_language' %}" method="post" class="language-selector-container">
                     {% csrf_token %}
                     <input name="next" type="hidden" value="{{ redirect_to }}">
@@ -72,8 +73,10 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
     <main>
         <section class="hero">
             <div class="container">
-                <h1>{% trans "Cabinet de kinésithérapie & physiothérapie" %}</h1>
+                <div class="section-title">
+                <h2>{% trans "Cabinet de kinésithérapie & physiothérapie" %}</h2>
                 <p>{% trans "Nous sommes dédiés à améliorer votre santé et votre bien-être grâce à nos services de qualité." %}</p>
+               </div>
                 <video style="margin-top: 15px;" controls autoplay muted>
                     <source src="{% static 'videos/VideoLogo2.mp4' %}" type="video/mp4">
                     {% trans "Votre navigateur ne prend pas en charge la balise vidéo." %}
@@ -101,6 +104,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
         </div>
     </footer>
     <script>
+        
         mybutton = document.getElementById("myBtn");
         
         
