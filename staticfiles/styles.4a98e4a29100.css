@@ -92,17 +92,19 @@ header {
     cursor: pointer;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 22px;
+nav ul {
+    list-style: none;
+    display: flex;
 }
 
-nav a:hover {
-   transition: 0.25s;
-   background: rgb(56, 130, 209);
-   color: black;
+nav ul li {
+   text-decoration: none;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
 }
 main {
     padding: 2rem;
