@@ -113,6 +113,7 @@ nav a {
 
 nav a:hover {
    transition: 0.25s;
+   text-decoration: none;
    background: rgb(56, 130, 209);
    color: black;
 }
