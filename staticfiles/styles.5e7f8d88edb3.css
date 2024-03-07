@@ -241,7 +241,7 @@ hero p {
     margin-bottom: 1.5rem;
     color: #666;
 }
-.p-anmation {
+p {
   animation-duration: 3s;
   animation-name: slidein;
 }

@@ -240,11 +240,10 @@ hero p {
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
     color: #666;
+    animation-duration: 3s;
+    animation-name: slidein;
 }
-.p-anmation {
-  animation-duration: 3s;
-  animation-name: slidein;
-}
+
 
 @keyframes slidein {
   from {

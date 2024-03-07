@@ -206,6 +206,7 @@ form input[type="date"] {
     margin-bottom: 0.6rem;
     border: 1px solid #ccc;
     border-radius: 3px;
+    border-radius: 22px;
 }
 
 form input[type="submit"] {
@@ -239,6 +240,22 @@ hero p {
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
     color: #666;
+}
+.p-anmation {
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
 }
 
 video {
@@ -340,6 +357,7 @@ form select[name="time"] {
     appearance: none;
     background-color: white;
     color: #333;
+    border-radius: 22px;
 }
 
 form select[name="time"] option {

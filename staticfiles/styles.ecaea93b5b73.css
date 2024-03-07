@@ -241,22 +241,6 @@ hero p {
     margin-bottom: 1.5rem;
     color: #666;
 }
-.p-anmation {
-  animation-duration: 3s;
-  animation-name: slidein;
-}
-
-@keyframes slidein {
-  from {
-    margin-left: 100%;
-    width: 300%;
-  }
-
-  to {
-    margin-left: 0%;
-    width: 100%;
-  }
-}
 
 video {
     max-width: 70%;
@@ -280,6 +264,7 @@ video {
     padding: 8px;
     margin-bottom: 16px;
     box-sizing: border-box;
+    border-radius: 22px;
   }
   
 
@@ -357,7 +342,6 @@ form select[name="time"] {
     appearance: none;
     background-color: white;
     color: #333;
-    border-radius: 22px;
 }
 
 form select[name="time"] option {
