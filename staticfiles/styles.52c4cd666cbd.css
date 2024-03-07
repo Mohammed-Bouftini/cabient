@@ -190,8 +190,9 @@ form {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+     /* Propriétés d'animation */
     animation-name: fadeIn;
-    animation-duration: 2s; 
+    animation-duration: 1s; /* Durée de l'animation (ajustez selon vos préférences) */
 }
 
 form label {

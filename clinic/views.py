@@ -60,9 +60,6 @@ def contact(request):
     contacts = Contact.objects.all().order_by('-created_at')
     return render(request, 'clinic/contact.html', {'contacts': contacts})
 
-def adminlogin(request):
-    return render(request, 'clinic/adminlogin.html')
-
 
 
 def prendre_rendezvous(request):
