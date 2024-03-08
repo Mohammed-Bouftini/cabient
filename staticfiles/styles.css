@@ -732,6 +732,13 @@ p {
     ul {
         margin-left: 1rem; 
     }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 4px 10px;
+      border-radius: 18px;
+  }
+  
 
     form {
         max-width: 100%; 
